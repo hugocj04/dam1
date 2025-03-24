@@ -8,10 +8,7 @@ public class Principal {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		// illo ennove
-		// illo ennove 2
-		
+				
 		// Adaptar el main a hashSet();
 		Scanner sc = new Scanner(System.in);
 		
