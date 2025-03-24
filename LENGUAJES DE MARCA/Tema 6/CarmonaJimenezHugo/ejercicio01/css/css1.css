@@ -1,0 +1,32 @@
+body {
+    text-align: center;
+    align-items: center;
+}
+
+h1 {
+    margin-bottom: 0px;
+}
+
+table {
+    margin: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 475px;
+}
+
+th {
+    background-color: rgb(209, 209, 209);
+    border: 1px solid black;
+    border-bottom: 2px solid black;
+    padding: 3px;
+}
+
+td {
+    text-align: center;
+    border: 1px solid black;
+    padding: 3px;
+}
+
+td:first-child {
+    text-align: left;
+}

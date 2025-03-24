@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background-color: #fdf1e5;
+}
+
+h2 {
+    text-align: left;
+}
+
+hr {
+    border: 1px solid #ddd;
+}
+
+table {
+    width: 800px;
+    border-collapse: collapse;
+    background: #fdf1e5;
+}
+
+th, td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
+    text-align: left;
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid #ddd;
+}
+
+th {
+    background-color: white;
+    font-weight: normal;
+}
+
+tr:nth-child(even) {
+    background-color: #f9e5d8;
+}
+
+tr:hover {
+    background-color: #e0c3a3;
+}
+
+td:hover {
+    background-color: yellow;
+}
+
+.positive {
+    color: green;
+}
+
+.negative {
+    color: red;
+}
+
+td:first-child {
+    font-weight: bold;
+}
+
+th:first-child {
+    font-weight: normal;
+}
+
+/* Aplicar borde inferior a la última fila */
+tr:last-child td {
+    border-bottom: 1px solid #ddd;
+}
