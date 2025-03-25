@@ -1,41 +1,104 @@
 package ejercicio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Oficina {
 
-	private List<Trastero> lista;
+	private List<Trastero> list;
 
-	public Oficina(List<Trastero> lista) {
+	public Oficina(List<Trastero> list) {
 		super();
-		this.lista = lista;
+		this.list = list;
 	}
 
-	public List<Trastero> getLista() {
-		return lista;
+	public List<Trastero> getList() {
+		return list;
 	}
 
-	public void setLista(List<Trastero> lista) {
-		this.lista = lista;
+	public void setList(List<Trastero> list) {
+		this.list = list;
 	}
 
 	@Override
 	public String toString() {
-		return "Oficina [lista=" + lista + "]";
+		return "Oficina [list=" + list + "]";
 	}
-	
-	public void añadirTrastero(Trastero t) {
-		lista.add(t);
+
+	public void agregarTrastero(Trastero t) {
+		list.add(t);
 	}
-	
-	public int[] buscarPorPrecio(double precio){
-		int[] aux = null;
-		for (int i = 0; i < lista.size(); i++) {
-			if (precio == lista.get(i).getPrecio()) {
-				aux[i] = i;
+
+	public int buscarPorId(int id) {
+		boolean encontrado = false;
+		int index = -1;
+		for (int i = 0; i < list.size() && !encontrado; i++) {
+			if (id == list.get(i).getId()) {
+				index = i;
+				encontrado = true;
 			}
 		}
-		return aux;
+		return index;
+	}
+
+	public List<Trastero> buscarPorPrecio(double precio) {
+		List<Trastero> listPrecio = new ArrayList<Trastero>();
+		for (int i = 0; i < list.size(); i++) {
+			if (precio == list.get(i).getPrecio()) {
+				listPrecio.add(list.get(i));
+			}
+		}
+		return listPrecio;
+	}
+
+	public List<Trastero> buscarPorNumero(int numero) {
+		List<Trastero> listPrecio = new ArrayList<Trastero>();
+		for (int i = 0; i < list.size(); i++) {
+			if (numero == list.get(i).getNum()) {
+				listPrecio.add(list.get(i));
+			}
+		}
+		return listPrecio;
+	}
+
+	public Trastero buscarMasCaro() {
+		Trastero masCaro = null;
+		for (int i = 0; i < list.size(); i++) {
+			if (masCaro == null || list.get(i).getPrecio() > masCaro.getPrecio()) {
+				masCaro = list.get(i);
+			}
+		}
+		return masCaro;
+	}
+
+	public boolean eliminar(int id) {
+		boolean eliminado = false;
+		int index = buscarPorId(id);
+		if (index > -1) {
+			list.remove(list.remove(index));
+			eliminado = true;
+		}
+		return eliminado;
+	}
+
+	public void mostrarTrasteros() {
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i));
+		}
 	}
 	
+	public void modificarPrecio(double precio, int id) {
+		list.get(id - 1).setPrecio(precio);
+	}
+	
+	public void ordenarPorPrecio() {
+	}
+	
+	public void mostrarOcupados(){
+		for (Trastero t : list) {
+			if (!t.isOcupado()) {
+				System.out.println(t);
+			}
+		}
+	}
 }
