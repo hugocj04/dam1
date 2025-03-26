@@ -77,7 +77,7 @@ public class Trastero implements Comparable<Trastero>{
 	}
 	
 	public int compareToV2(Trastero t) {
-		return Integer.compare(getNum(), t.getNum());
+		return Integer.compare(num, t.getNum());
 	}
 	
 
