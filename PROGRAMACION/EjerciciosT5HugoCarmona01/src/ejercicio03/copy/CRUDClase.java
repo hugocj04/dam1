@@ -27,41 +27,56 @@ public class CRUDClase {
 
 	public void mostrarTodos() {
 		Iterator<Alumno> it = list.iterator();
+		
 		while (it.hasNext()) {
 			System.out.println(it.next());
 		}
 	}
 
-	public Alumno findById(int id) {
+	public Alumno findByLastName(String apellido) {
 		Iterator<Alumno> it = list.iterator();
 		Alumno a = null;
+		
 		while (it.hasNext()) {
 			a = it.next();
-			if (a.getId() == id) {
-				return a;
+			if (a.getApellido().equalsIgnoreCase(apellido)) {
+				return a; // Sirve para retornar cuando lo haya encontrado solo cuando es unico el parametro por el que se busca
 			}
 		}
-		return a;
+		return null;
 	}
 
-	public int modificarMedia(int id, double nuevaMedia) {
-		Alumno aux = findById(id);
-		int num = 0;
+	public boolean modificarMedia(String apellido, double media) {
+		Alumno aux = findByLastName(apellido);
+		boolean modificado = false;
+		
 		if (aux != null) {
-			aux.setMedia(nuevaMedia);
-			num = 1;
+			aux.setMedia(media);
+			modificado = true;
 		}
-		return num;
+		return modificado;
+	}
+	
+	public boolean modificarEdad(String apellido, int edad) {
+		Alumno aux = findByLastName(apellido);
+		boolean modificado = false;
+		
+		if (aux != null) {
+			aux.setEdad(edad);
+			modificado = true;
+		}
+		return modificado;
 	}
 
-	public int borrarAlumno(int id) {
-		Alumno a = findById(id);
-		int num = 0;
-		if (a != null) {
-			list.remove(a);
-			num = 1;
+	public boolean borrarAlumno(String apellido) {
+		Alumno aux = findByLastName(apellido);
+		boolean borrado = false;
+		
+		if (aux != null) {
+			list.remove(aux);
+			borrado = true;
 		}
-		return num;
+		return borrado;
 	}
 
 }

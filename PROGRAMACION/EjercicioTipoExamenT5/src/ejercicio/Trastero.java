@@ -2,29 +2,19 @@ package ejercicio;
 
 public class Trastero implements Comparable<Trastero>{
 
-	private int id;
 	private double capacidad;
 	private String direccion;
 	private int num;
 	private double precio;
 	private boolean ocupado;
 
-	public Trastero(int id, double capacidad, String direccion, int num, double precio, boolean ocupado) {
+	public Trastero(double capacidad, String direccion, int num, double precio, boolean ocupado) {
 		super();
-		this.id = id;
 		this.capacidad = capacidad;
 		this.direccion = direccion;
 		this.num = num;
 		this.precio = precio;
 		this.ocupado = ocupado;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public double getCapacidad() {
@@ -69,14 +59,26 @@ public class Trastero implements Comparable<Trastero>{
 
 	@Override
 	public String toString() {
-		return "Trastero [id=" + id + ", capacidad=" + capacidad + ", direccion=" + direccion + ", num=" + num + ", precio=" + precio
+		return "Trastero [capacidad=" + capacidad + ", direccion=" + direccion + ", num=" + num + ", precio=" + precio
 				+ ", ocupado=" + ocupado + "]";
 	}
 
 	@Override
 	public int compareTo(Trastero t) {
 		// TODO Auto-generated method stub
-		return Integer.compare(this.num, t.num);
+		if (num > t.getNum()) {
+			return -1;
+		} else {
+			if (num < t.getNum()) {
+				return 1;
+			}
+		}
+		return 0;
 	}
+	
+	public int compareToV2(Trastero t) {
+		return Integer.compare(getNum(), t.getNum());
+	}
+	
 
 }
