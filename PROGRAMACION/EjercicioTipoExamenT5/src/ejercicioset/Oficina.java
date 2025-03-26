@@ -1,13 +1,10 @@
 package ejercicioset;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-
-import ejercicio.Trastero;
 
 public class Oficina {
 
@@ -103,11 +100,13 @@ public class Oficina {
 	
 	public Set<Trastero> ordenarPorPrecio(){
 		Set<Trastero> ordenadoPrecio = new TreeSet<Trastero>(new OrdenarPorPrecio());
+		ordenadoPrecio.addAll(list);
 		return ordenadoPrecio;
 	}
 	
 	public Set<Trastero> ordenarPorNumero() {
 		Set<Trastero> ordenadoNumero = new TreeSet<Trastero>();
+		ordenadoNumero.addAll(list);
 		return ordenadoNumero;
 	}
 

@@ -3,7 +3,6 @@ package ejercicioset;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
-import ejercicio.Trastero;
 
 public class Principal {
 
@@ -98,7 +97,10 @@ public class Principal {
 					System.out.println(o.modificarPrecio(o.buscarPorNumero(num), nuevoPrecio));
 					break;
 				case 7:
+					System.out.println("Ordenados por precio de mayor a menor: ");
 					System.out.println(o.ordenarPorPrecio());
+					System.out.println("\nOrdenados por numero de mayor a menor: ");
+					System.out.println(o.ordenarPorNumero());
 					break;
 				case 8:
 					break;
