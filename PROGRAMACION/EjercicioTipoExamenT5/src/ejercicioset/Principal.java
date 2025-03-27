@@ -103,6 +103,7 @@ public class Principal {
 					System.out.println(o.ordenarPorNumero());
 					break;
 				case 8:
+					o.
 					break;
 				case 9:
 					break;
