@@ -62,7 +62,6 @@ th:first-child {
     font-weight: normal;
 }
 
-/* Aplicar borde inferior a la última fila */
 tr:last-child td {
     border-bottom: 1px solid #ddd;
 }

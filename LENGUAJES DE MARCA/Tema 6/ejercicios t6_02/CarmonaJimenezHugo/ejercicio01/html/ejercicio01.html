@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1</title>
+    <link rel="stylesheet" href="../css/css1.css">
+</head>
+<body>
+    <div class="contenedor-formulario">
+        <form>
+            <h2>Datos Personales</h2>
+            
+            <label>Nombre:
+                <input type="text" required>
+            </label>
+            
+            <label>Apellidos:
+                <input type="text" required>
+            </label>
+            
+            <label>Edad:
+                <input type="number" min="1" required>
+            </label>
+            
+            <label>Email:
+                <input type="email" required>
+            </label>
+            
+            <label>Navegador favorito:
+                <select required>
+                    <option value="">- Elegir -</option>
+                    <option>Chrome</option>
+                    <option>Firefox</option>
+                    <option>Edge</option>
+                    <option>Safari</option>
+                    <option>Otros</option>
+                </select>
+            </label>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>
