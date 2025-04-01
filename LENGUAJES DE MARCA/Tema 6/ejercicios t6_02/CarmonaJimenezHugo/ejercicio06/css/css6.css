@@ -1,49 +1,129 @@
 body {
-    display: flex;
-    height: 100vh;
     font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
 }
 
-table {
-    width: 30%;
-    height: 60%;
-    border-collapse: collapse;
-    margin: auto; 
-}
-
-th {
+main {
+    max-width: 900px;
+    margin: 0 auto;
     background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-td {
-    width: 200px;
-    text-align: center;
+h2 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 1.5em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.form-row:not(.submit-row):hover {
+    background-color: #FF9;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.submit-row {
+    margin-top: 10px;
+    text-align: right;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 20px 0;
+}
+
+.titulo {
+    flex: 0 0 180px;
+    text-align: left;
     font-weight: bold;
-    font-size: 16px;
+    padding-top: 8px;
+    padding-left: 10px;
 }
 
-tr:nth-child(odd) td:nth-child(odd) {
-    background-color: #f0d9b5;
-    color: #000;
+.requerido {
+    color: red;
 }
 
-tr:nth-child(even) td:nth-child(even) {
-    background-color: #f0d9b5;
-    color: #000;
+.form-fields {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-tr:nth-child(odd) td:nth-child(even) {
-    background-color: #b58863;
-    color: #fff;
+.field-group {
+    margin-bottom: 5px;
 }
 
-tr:nth-child(even) td:nth-child(odd) {
-    background-color: #b58863;
-    color: #fff;
+.flex-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-td:first-child, td:last-child, tr:first-child>td, tr:last-child>td {
-    background-color: white !important;
-    color: black !important;
+.flex-group .field-group {
+    flex: 1;
+    min-width: 150px;
 }
 
+.field-group label {
+    display: block;
+    font-size: 0.8em;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.ayuda {
+    display: none;
+    font-size: 0.8em;
+    background-color: #ffffff;
+}
+
+.form-row:hover .ayuda {
+    display: block;
+    background-color: #FF9;
+}
+
+input, select {
+    width: 100%;
+    min-width: 200px;
+    max-width: 300px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #ccc;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    width: auto;
+    transition: background-color 0.3s;
+    margin-left: auto;
+    display: block;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #E6B700;
+}

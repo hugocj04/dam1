@@ -32,7 +32,7 @@ public class CRUD {
 	}
 	
 	// Filtra y devuelve los productos que cuestan más de 50€
-	public Stream<Producto> productosCaros() {
+	public Stream<Producto> mostrarProductosCaros() {
 		return list.stream().filter(p -> p.getPrecio() > 50);
 	}
 
@@ -42,7 +42,7 @@ public class CRUD {
 	}
 
 	// Convierte los precios de los productos a enteros y los devuelve en un Stream
-	public IntStream preciosRedondeados() {
+	public IntStream redondearPrecios() {
 		return list.stream().mapToInt(p -> (int) p.getPrecio());
 	}
 
@@ -78,7 +78,7 @@ public class CRUD {
 	}
 
 	// Devuelve los 3 productos más baratos de la lista
-	public Stream<Producto> tresProductosMasEconomicos() {
+	public Stream<Producto> mostrarTresProductosMasEconomicos() {
 		return list.stream().sorted(Comparator.comparingDouble(Producto::getPrecio)).limit(3);
 	}
 

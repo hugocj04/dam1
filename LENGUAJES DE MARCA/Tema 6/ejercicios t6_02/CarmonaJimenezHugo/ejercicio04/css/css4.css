@@ -30,7 +30,6 @@ h1 {
     flex: 1;
 }
 
-/* Estructura de grupo de campos */
 .grupo-campo {
     margin-bottom: 25px;
     border-radius: 4px;
@@ -53,7 +52,6 @@ h1 {
     padding: 5px 0;
 }
 
-/* Elementos de formulario */
 .grupo-campo input, .grupo-campo select {
     width: 100%;
     padding: 8px;

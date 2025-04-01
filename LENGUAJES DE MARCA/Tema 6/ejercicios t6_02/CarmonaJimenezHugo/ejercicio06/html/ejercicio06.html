@@ -1,133 +1,105 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 6</title>
+    <meta charset="utf-8" />
     <link rel="stylesheet" href="../css/css6.css">
 </head>
 <body>
-    <table>
-        <tr>
-            <th></th>
-            <th>A</th>
-            <th>B</th>
-            <th>C</th>
-            <th>D</th>
-            <th>E</th>
-            <th>F</th>
-            <th>G</th>
-            <th>H</th>
-            <th></th>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td>A8</td>
-            <td>B8</td>
-            <td>C8</td>
-            <td>D8</td>
-            <td>E8</td>
-            <td>F8</td>
-            <td>G8</td>
-            <td>H8</td>
-            <td>8</td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>A7</td>
-            <td>B7</td>
-            <td>C7</td>
-            <td>D7</td>
-            <td>E7</td>
-            <td>F7</td>
-            <td>G7</td>
-            <td>H7</td>
-            <td>7</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>A6</td>
-            <td>B6</td>
-            <td>C6</td>
-            <td>D6</td>
-            <td>E6</td>
-            <td>F6</td>
-            <td>G6</td>
-            <td>H6</td>
-            <td>6</td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>A5</td>
-            <td>B5</td>
-            <td>C5</td>
-            <td>D5</td>
-            <td>E5</td>
-            <td>F5</td>
-            <td>G5</td>
-            <td>H5</td>
-            <td>5</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>A4</td>
-            <td>B4</td>
-            <td>C4</td>
-            <td>D4</td>
-            <td>E4</td>
-            <td>F4</td>
-            <td>G4</td>
-            <td>H4</td>
-            <td>4</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>A3</td>
-            <td>B3</td>
-            <td>C3</td>
-            <td>D3</td>
-            <td>E3</td>
-            <td>F3</td>
-            <td>G3</td>
-            <td>H3</td>
-            <td>3</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>A2</td>
-            <td>B2</td>
-            <td>C2</td>
-            <td>D2</td>
-            <td>E2</td>
-            <td>F2</td>
-            <td>G2</td>
-            <td>H2</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>A1</td>
-            <td>B1</td>
-            <td>C1</td>
-            <td>D1</td>
-            <td>E1</td>
-            <td>F1</td>
-            <td>G1</td>
-            <td>H1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>A</td>
-            <td>B</td>
-            <td>C</td>
-            <td>D</td>
-            <td>E</td>
-            <td>F</td>
-            <td>G</td>
-            <td>H</td>
-            <td></td>
-        </tr>
-    </table>
+<main>
+    <h2>Formulario de alta</h2>
+    <form method="post" action="#">
+        <div class="form-row">
+            <label class="titulo" for="nombre">Nombre y apellidos <span class="requerido">*</span></label>
+            <div class="form-fields">
+                <div class="field-group">
+                    <input id="nombre" name="nombre" value="" />
+                    <label for="nombre">Nombre</label>
+                </div>
+                <div class="field-group">
+                    <input id="apellido1" name="apellido1" value="" />
+                    <label for="apellido1">Primer apellido</label>
+                </div>
+                <div class="field-group">
+                    <input id="apellido2" name="apellido2" value="" />
+                    <label for="apellido2">Segundo apellido</label>
+                </div>
+                <div class="ayuda">No te olvides de escribir también tu segundo apellido</div>
+            </div>
+        </div>
+        <div class="form-row">
+            <label class="titulo" for="direccion">Dirección <span class="requerido">*</span></label>
+            <div class="form-fields">
+                <div class="field-group">
+                    <input id="direccion" name="direccion" value="" />
+                    <label for="direccion">Calle, número, piso, puerta</label>
+                </div>
+                <div class="flex-group">
+                    <div class="field-group">
+                        <input id="codigopostal" name="codigopostal" value="" />
+                        <label for="codigopostal">Código postal</label>
+                    </div>
+                    <div class="field-group">
+                        <input id="municipio" name="municipio" value="" />
+                        <label for="municipio">Municipio</label>
+                    </div>
+                </div>
+                <div class="flex-group">
+                    <div class="field-group">
+                        <select id="provincia" name="provincia">
+                            <option value=""></option>
+                            <option value="provincia1">Provincia 1</option>
+                            <option value="provincia2">Provincia 2</option>
+                            <option value="provincia3">Provincia 3</option>
+                        </select>
+                        <label for="provincia">Provincia</label>
+                    </div>
+                    <div class="field-group">
+                        <select id="pais" name="pais">
+                            <option value=""></option>
+                            <option value="pais1">País 1</option>
+                            <option value="pais2">País 2</option>
+                            <option value="pais3">País 3</option>
+                        </select>
+                        <label for="pais">País</label>
+                    </div>
+                </div>
+                <div class="ayuda">El código postal es imprescindible para poder recibir los pedidos</div>
+            </div>
+        </div>
+        <div class="form-row">
+            <label class="titulo" for="email">Email</label>
+            <div class="form-fields">
+                <div class="field-group">
+                    <input id="email" name="email" value="" />
+                </div>
+                <div class="ayuda">Asegúrate de que sea váfieldsetdo</div>
+            </div>
+        </div>
+        <div class="form-row">
+            <label class="titulo" for="telefonofijo">Teléfono <span class="requerido">*</span></label>
+            <div class="form-fields">
+                <div class="flex-group">
+                    <div class="field-group">
+                        <input id="telefonofijo" name="telefonofijo" value="" />
+                        <label for="telefonofijo">Fijo</label>
+                    </div>
+                    <div class="field-group">
+                        <input id="telefonomovil" name="telefonomovil" value="" />
+                        <label for="telefonomovil">Móvil</label>
+                    </div>
+                </div>
+                <div class="ayuda">Sin prefijo de país y sin espacios en blanco</div>
+            </div>
+        </div>
+        <hr>
+        <div class="form-row submit-row">
+            <div></div>
+            <div class="form-fields">
+                <input id="alta" type="submit" value="Darme de alta →" />
+            </div>
+        </div>
+    </form>
+</main>
 </body>
 </html>

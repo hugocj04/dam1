@@ -82,7 +82,7 @@ public class Principal {
 	                System.out.println("Saliendo...");
 	                break;
 	            case 1:
-	            	System.out.println("A continuación introduce los datos del producto: ");
+	            	System.out.println("\nA continuación introduce los datos del producto: ");
 	            	System.out.print("Nombre: ");
 	            	nombre = sc.nextLine();
 	            	System.out.print("Precio: ");
@@ -90,10 +90,11 @@ public class Principal {
 	            	System.out.print("Categoría: ");
 	            	categoria = sc.nextLine();
 	            	crud.addProducto(new Producto(nombre, precio,categoria));
+	            	System.out.println("Producto añadido con exito.");
 	            	break;
 	            case 2:
 	                System.out.println();
-	                crud.productosCaros().forEach(System.out::println);
+	                crud.mostrarProductosCaros().forEach(System.out::println);
 	                break;
 	            case 3:
 	                System.out.println();
@@ -101,7 +102,7 @@ public class Principal {
 	                break;
 	            case 4:
 	                System.out.println();
-	                crud.preciosRedondeados().forEach(System.out::println);
+	                crud.redondearPrecios().forEach(System.out::println);
 	                break;
 	            case 5:
 	                System.out.println();
@@ -129,7 +130,7 @@ public class Principal {
 	                break;
 	            case 11:
 	                System.out.println();
-	                crud.tresProductosMasEconomicos().forEach(System.out::println);
+	                crud.mostrarTresProductosMasEconomicos().forEach(System.out::println);
 	                break;
 	            case 12:
 	                System.out.println();

@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #e8f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.reserva-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 82, 136, 0.15);
+    overflow: hidden;
+}
+
+.reserva-form {
+    padding: clamp(25px, 6vw, 30px);
+}
+
+.reserva-form h1 {
+    color: #005288;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: clamp(24px, 5vw, 28px);
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #3a556d;
+    font-weight: 500;
+}
+
+input[type="number"], input[type="date"], input[type="email"], select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #c5d5e4;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: #f9fbfd;
+}
+
+input[type="number"]:focus, input[type="date"]:focus, input[type="email"]:focus, select:focus {
+    border-color: #0077c8;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 119, 200, 0.1);
+}
+
+select {
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #0077c8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #005fa3;
+}
