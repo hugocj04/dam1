@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EcoShop - Blog</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="../html/index.html">EcoShop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menuNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="../html/index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="../html/quienessomos.html">Quiénes Somos</a></li>
+          <li class="nav-item"><a class="nav-link active" href="../html/blog.html">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="container py-5">
+    <h1 class="text-center mb-5">Últimos artículos del Blog</h1>
+
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card h-100">
+          <img src="../img/huerto-urbano1.jpg" class="card-img-top" alt="Huertos Urbanos">
+          <div class="card-body">
+            <h5 class="card-title">Cómo iniciar tu propio huerto urbano</h5>
+            <p class="card-text">Tener un huerto en casa es más fácil de lo que parece. Aprende paso a paso cómo empezar y qué necesitas para cultivar tus propios alimentos.</p>
+            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalHuerto">
+              Leer más
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card h-100">
+          <img src="../img/zerowaste.jpg" class="card-img-top" alt="Zero Waste">
+          <div class="card-body">
+            <h5 class="card-title">Viviendo sin residuos: Guía para principiantes</h5>
+            <p class="card-text">¿Quieres reducir tu impacto ambiental? Esta guía práctica te dará ideas y consejos para empezar un estilo de vida más sostenible y libre de residuos.</p>
+            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalZeroWaste">
+              Leer más
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card h-100">
+          <img src="../img/compostaje.jpg" class="card-img-top" alt="Compostaje">
+          <div class="card-body">
+            <h5 class="card-title">Beneficios del compostaje en casa</h5>
+            <p class="card-text">Conoce cómo transformar tus residuos orgánicos en abono natural y enriquecer tus plantas de forma ecológica.</p>
+            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalCompostaje">
+              Leer más
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal fade" id="modalHuerto" tabindex="-1" aria-labelledby="modalHuertoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalHuertoLabel">Cómo iniciar tu propio huerto urbano</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p>Empezar un huerto urbano es una forma excelente de acercarte a la naturaleza y cultivar tus propios alimentos, incluso si vives en ciudad. No necesitas mucho espacio, solo dedicación y algunos materiales básicos.</p>
+          <p><strong>Paso 1:</strong> Elige un lugar con buena luz solar, como un balcón o terraza.</p>
+          <p><strong>Paso 2:</strong> Utiliza macetas recicladas o jardineras adecuadas con buen drenaje.</p>
+          <p><strong>Paso 3:</strong> Escoge cultivos fáciles como tomate cherry, albahaca o lechuga.</p>
+          <p><strong>Paso 4:</strong> Riega con moderación y cuida tus plantas a diario.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalZeroWaste" tabindex="-1" aria-labelledby="modalZeroWasteLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalZeroWasteLabel">Viviendo sin residuos: Guía para principiantes</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p>La filosofía Zero Waste promueve reducir al máximo los residuos que generamos. Esto implica rechazar productos innecesarios, reducir el consumo, reutilizar lo posible y reciclar correctamente.</p>
+          <ul>
+            <li>Usa bolsas reutilizables.</li>
+            <li>Compra a granel siempre que puedas.</li>
+            <li>Evita productos con exceso de embalaje.</li>
+            <li>Aprende a reparar antes que desechar.</li>
+          </ul>
+          <p>Comienza por pequeños cambios y verás un gran impacto en tu día a día.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalCompostaje" tabindex="-1" aria-labelledby="modalCompostajeLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalCompostajeLabel">Beneficios del compostaje en casa</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p>El compostaje transforma tus residuos orgánicos en abono natural. Reduce la basura, mejora el suelo y es una excelente práctica ecológica.</p>
+          <p><strong>Ventajas:</strong></p>
+          <ul>
+            <li>Disminución de residuos en vertederos.</li>
+            <li>Obtención de fertilizante natural.</li>
+            <li>Ahorro económico.</li>
+            <li>Conciencia ambiental en el hogar.</li>
+          </ul>
+          <p>Empieza separando restos orgánicos en un cubo y usando una compostera en tu jardín o terraza.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-white py-4 mt-5">
+    <div class="container">
+      <div class="row text-center text-md-start">
+        <div class="col-md-4">
+          <h5>EcoShop</h5>
+          <p>Tu blog de sostenibilidad y productos ecológicos.</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Enlaces</h5>
+          <ul class="list-unstyled">
+            <li><a href="../html/index.html" class="text-white">Inicio</a></li>
+            <li><a href="../html/quienessomos.html" class="text-white">Quiénes Somos</a></li>
+            <li><a href="../html/blog.html" class="text-white">Blog</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Contacto</h5>
+          <p>Email: info@ecoshop.com</p>
+          <p>Tel: +34 601 498 346</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
