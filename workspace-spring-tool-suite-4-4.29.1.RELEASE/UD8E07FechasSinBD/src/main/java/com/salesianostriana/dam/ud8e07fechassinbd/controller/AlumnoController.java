@@ -37,7 +37,8 @@ public class AlumnoController {
 		/*Agregamos un syso para ver cómo se imprime la fecha con el formato
 		 * del pattern dado en la clase POJO @DateTimeFormat(pattern = "yyyy-MM-dd")
 		 * Así, vemos la diferencia de cómo se guarda (con el patrón),
-		 * cómo se muestra en th, y cómo sin pattern*/
+		 * cómo se muestra en th, y cómo sin pattern
+		 */
 		
 		System.out.println(alumnoServicio.getLista());
 		return "list";
