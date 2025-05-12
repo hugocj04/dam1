@@ -1,12 +1,8 @@
 package com.salesianostriana.dam.carmonajimenezhugo.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 
-import com.salesianostriana.dam.carmonajimenezhugo.model.Cliente;
 
 @Controller
 public class ControllerPrincipal {
@@ -18,45 +14,28 @@ public class ControllerPrincipal {
 
     @GetMapping("/dashboard")
     public String dashboard() {
-        return "Dashboard";
-    }
-
-    @GetMapping("/registrar")
-    public String showForm(Model model) {
-    	Cliente cliente = new Cliente();
-    	model.addAttribute("cliente", cliente);
-        return "Registrar";
-    }
-        
-    @PostMapping("/addCliente")
-    public String submit(@ModelAttribute("clienteForm") Cliente cliente, Model model) {
-    	model.addAttribute("cliente", cliente);
-    	return "Registrar";
+        return "dashboard";
     }
 
     @GetMapping("/verClientes")
     public String verClientes() {
-        return "VerClientes";
+        return "verClientes";
     }
 
     @GetMapping("/asignar")
     public String asignar() {
-        return "Asignar";
+        return "asignar";
     }
 
     @GetMapping("/verRutinas")
     public String verRutinas() {
-        return "VerRutinas";
+        return "verRutinas";
     }
 
-    @GetMapping("/crear")
-    public String crear() {
-        return "Crear";
-    }
 
     @GetMapping("/verProgreso")
     public String verProgreso() {
-        return "VerProgreso";
+        return "verProgreso";
     }
     
 }

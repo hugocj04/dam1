@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymPlanner - Crear nueva rutina</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<header th:fragment="header" class="bg-dark text-warning p-3">
+    <div class="container-fluid">
+        <div class="d-flex align-items-center">
+            <button class="btn btn-warning p-2 me-2 d-flex flex-column justify-content-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" style="height: 38px; width: 38px;">
+                <span class="d-block bg-dark mb-1" style="height: 2px; width: 20px;"></span>
+                <span class="d-block bg-dark mb-1" style="height: 2px; width: 20px;"></span>
+                <span class="d-block bg-dark" style="height: 2px; width: 20px;"></span>
+            </button>
+            <h1 class="m-0 mx-auto">GymPlanner</h1>
+            <div class="invisible" style="width: 48px;"></div>
+        </div>
+    </div>
+</header>
+
+<div th:fragment="menu" class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="sidebarMenu">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title text-warning">Menú</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="nav flex-column">
+            <li class="nav-item mb-2">
+                <a th:href="@{/dashboard}" type="submit" class="btn btn-warning w-100">Dashboard</a>
+            </li>
+            <li class="nav-item mb-2">
+                <a th:href="@{/registrar}" type="submit" class="btn btn-warning w-100">Registrar cliente</a>
+            </li>
+            <li class="nav-item mb-2">
+                <a th:href="@{/verClientes}" type="submit" class="btn btn-warning w-100">Ver clientes</a>
+            </li>
+            <li class="nav-item mb-2">
+                <a th:href="@{/asignar}" type="submit" class="btn btn-warning w-100">Asignar rutina a cliente</a>
+            </li>
+            <li class="nav-item mb-2">
+                <a th:href="@{/verRutinas}" type="submit" class="btn btn-warning w-100">Ver rutinas</a>
+            </li>
+            <li class="nav-item mb-2">
+                <a th:href="@{/crear}" type="submit" class="btn btn-warning w-100">Crear nueva rutina</a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/verProgreso}" type="submit" class="btn btn-warning w-100">Ver progreso de rutinas</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<footer th:fragment="footer" class="bg-dark text-warning py-4 mt-auto">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 ps-md-4">
+                <h5>Contacto</h5>
+                <p><i class="bi bi-envelope-fill me-2"></i>carmona.jihug24@triana.salesianos.edu<br>
+                <i class="bi bi-telephone-fill me-2"></i>+34 601 498 346<br>
+                <i class="bi bi-geo-alt-fill me-2"></i><a href="https://g.co/kgs/qRdZQ2G">C. Condes de Bustillo, 17, 41010 Sevilla</a></p>
+            </div>
+            <div class="col-md-4 ps-md-4">
+                <h5>Créditos</h5>
+                <p><i class="bi bi-person-fill me-2"></i><strong>Creado por:</strong> Hugo Carmona Jiménez</p>
+                <p><i class="bi bi-laptop-fill me-2"></i><strong>Curso:</strong> Grado Superior en Desarrollo de Aplicaciones Multiplataforma</p>
+            </div>
+            <div class="col-md-4 ps-md-4">
+                <h5>Redes Sociales</h5>
+                <p>
+                    <a href="https://www.facebook.com/?locale=es_ES" class="text-warning text-decoration-none me-3">
+                        <i class="bi bi-facebook me-1"></i>Facebook
+                    </a><br>
+                    <a href="https://www.instagram.com/" class="text-warning text-decoration-none me-3">
+                        <i class="bi bi-instagram me-1"></i>Instagram
+                    </a><br>
+                    <a href="https://x.com/?lang=es" class="text-warning text-decoration-none me-3">
+                        <i class="bi bi-twitter-x me-1"></i>Twitter
+                    </a><br>
+                    <a href="https://es.linkedin.com/" class="text-warning text-decoration-none me-3">
+                        <i class="bi bi-linkedin me-1"></i>Linkedin
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
