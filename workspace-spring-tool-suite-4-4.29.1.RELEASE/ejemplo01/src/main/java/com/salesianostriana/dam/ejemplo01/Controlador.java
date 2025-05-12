@@ -19,7 +19,7 @@ public class Controlador {
 	
 	@GetMapping("/saludo2")
 	public String welcome2(Model model) {
-		model.addAttribute("persona", new Persona ("Hugo", "Carmona Jiménez"));
+		model.addAttribute("persona", new Persona ());
 		return "SaludoPersonalizado";
 	}
 	

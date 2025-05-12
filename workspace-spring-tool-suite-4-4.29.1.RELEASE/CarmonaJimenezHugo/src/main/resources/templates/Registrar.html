@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GymPlanner - Inicio</title>
+    <title>GymPlanner - Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -37,7 +37,7 @@
                 </li>
                 <li class="nav-item mb-2">
                     <form action="/registrar" method="get">
-                        <button type="submit" class="btn btn-warning w-100">Registrar cliente</button>
+                        <button type="submit" class="btn btn-warning w-100 fw-bold">Registrar cliente</button>
                     </form>
                 </li>
                 <li class="nav-item mb-2">
@@ -68,25 +68,31 @@
             </ul>
         </div>
     </div>
-    
+
+
     <main class="container-fluid flex-grow-1 py-4">
-        <div class="row h-100 justify-content-center align-items-center gx-0">
-            <div class="col-lg-3 text-center px-2">
-                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGhlJTIwZ3ltfGVufDB8fDB8fHww" alt="Imagen izquierda" class="img-fluid rounded shadow">
-            </div>
-            <div class="col-lg-6 text-center px-0">
-                <h2 class="text-black mb-4">¿A qué nos dedicamos?</h2>
-                <div class="text-start mx-auto" style="max-width: 600px;">
-                    <p class="text-black">
-                        En GymPlanner nos dedicamos a ayudar a los entrenadores y gimnasios a gestionar 
-                        de manera eficiente sus clientes y rutinas de entrenamiento. Nuestra plataforma 
-                        permite crear, asignar y monitorear el progreso de las rutinas de ejercicio, 
-                        facilitando el seguimiento del rendimiento de cada cliente.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-3 text-center px-2">
-                <img src="https://etenonfitness.com/wp-content/uploads/2019/10/Low-cost-1024x683.jpg" alt="Imagen derecha" class="img-fluid rounded shadow">
+        <h2 class="text-center mb-4">Registrar cliente</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form method="POST" th:action="@{/registrar}" th:object="${cliente}" class="border rounded p-4 shadow-sm bg-light">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" th:field="*{nombre}" class="form-control" id="nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edad" class="form-label">Edad</label>
+                        <input type="number" th:field="*{edad}" class="form-control" id="edad" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <input type="email" th:field="*{email}" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="tel" th:field="*{telefono}" class="form-control" id="telefono" required>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Agregar cliente</button>
+                </form>
             </div>
         </div>
     </main>
@@ -125,6 +131,4 @@
             </div>
         </div>
     </footer>
-
 </body>
-</html>    

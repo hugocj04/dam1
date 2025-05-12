@@ -1,4 +1,4 @@
-package com.salesianostriana.dam.carmonajimenezhugo.model;
+package com.salesianostriana.dam.ud8e05formularios1.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,19 +7,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
-public class Cliente {
-
+@Data @NoArgsConstructor @AllArgsConstructor
+public class Empleado {
+	
 	@Id
 	@GeneratedValue
-	private long id;
-
+    private long id;
 	private String nombre;
-	private int edad;
-	private String email;
-	private String telefono;
-
+    private String email;
+    	
 }
