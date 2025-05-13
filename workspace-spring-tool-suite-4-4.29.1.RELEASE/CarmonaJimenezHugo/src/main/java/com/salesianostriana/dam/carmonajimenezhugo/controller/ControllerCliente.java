@@ -26,7 +26,12 @@ public class ControllerCliente {
     @PostMapping("/registrar")
     public String submit(@ModelAttribute Cliente cliente, Model model) {
     	serviceCliente.save(cliente);
-    	return "registrar";
+    	return "redirect:/registrar";
     }
 
+    @GetMapping("/verClientes/listar")
+    public String listarClientes(Model model) {
+    	model.addAttribute("listar", serviceCliente.listarClientes());
+    	return "verClientes";
+    }
 }

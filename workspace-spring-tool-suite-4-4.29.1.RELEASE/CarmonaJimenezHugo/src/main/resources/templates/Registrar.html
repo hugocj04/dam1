@@ -21,6 +21,10 @@
             <div class="col-md-6">
                 <form method="POST" th:action="@{/registrar}" th:object="${cliente}" class="border rounded p-4 shadow-sm bg-light">
                     <div class="mb-3">
+                        <label for="fecha" class="form-label">Fecha</label>
+                        <input type="date" th:field="*{fecha}" class="form-control" id="fecha" required>
+                    </div>
+                    <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>
                         <input type="text" th:field="*{nombre}" class="form-control" id="nombre" required>
                     </div>

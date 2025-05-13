@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public abstract class BaseServiceImplCliente<T, ID, R extends JpaRepository<T, ID>> implements BaseServiceCliente<T, ID> {
+public abstract class BaseServiceImpl<T, ID, R extends JpaRepository<T, ID>> implements BaseService<T, ID> {
 
 	@Autowired
 	protected R repository;

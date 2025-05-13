@@ -17,7 +17,9 @@
                 <span class="d-block bg-dark mb-1" style="height: 2px; width: 20px;"></span>
                 <span class="d-block bg-dark" style="height: 2px; width: 20px;"></span>
             </button>
-            <h1 class="m-0 mx-auto">GymPlanner</h1>
+            <h1 class="m-0 mx-auto">
+                <a th:href="@{/}" class="text-warning text-decoration-none">GymPlanner</a>
+            </h1>
             <div class="invisible" style="width: 48px;"></div>
         </div>
     </div>
@@ -37,7 +39,7 @@
                 <a th:href="@{/registrar}" type="submit" class="btn btn-warning w-100">Registrar cliente</a>
             </li>
             <li class="nav-item mb-2">
-                <a th:href="@{/verClientes}" type="submit" class="btn btn-warning w-100">Ver clientes</a>
+                <a th:href="@{/verClientes/listar}" type="submit" class="btn btn-warning w-100">Ver clientes</a>
             </li>
             <li class="nav-item mb-2">
                 <a th:href="@{/asignar}" type="submit" class="btn btn-warning w-100">Asignar rutina a cliente</a>

@@ -1,0 +1,212 @@
+2025-05-13 10:49:24.837056+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PRODUCTO" no encontrada
+Table "PRODUCTO" not found; SQL statement:
+INSERT INTO PRODUCTO (FECHA, NOMBRE, APELLIDOS, EDAD, EMAIL, TELEFONO) VALUES ('2025-05-13', "Pedro", "Serrano Romero", 19, "pedroserro05@gmail.com", 645321905) [42102-232]
+2025-05-13 10:51:36.314939+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO cliente (fecha, nombre, apellidos, edad, email, telefono) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO cliente (fecha, nombre, apellidos, edad, email, telefono) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO cliente (fecha, nombre, apellidos, edad, email, telefono) VALUES [42001-232]
+2025-05-13 10:51:36.329869+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'2024-01-15', 'Laura', 'Martínez Gómez', 26, 'laura.martinez@gmail.com', '612345678'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'2024-01-15', 'Laura', 'Martínez Gómez', 26, 'laura.martinez@gmail.com', '612345678'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('2024-01-15', 'Laura', 'Martínez Gómez', 26, 'laura.martinez@gmail.com', '612345678'), [42001-232]
+2025-05-13 10:51:36.331863+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'2023-12-10', 'Carlos', 'Ruiz Peña', 34, 'carlos.ruiz@gmail.com', '611223344'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'2023-12-10', 'Carlos', 'Ruiz Peña', 34, 'carlos.ruiz@gmail.com', '611223344'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('2023-12-10', 'Carlos', 'Ruiz Peña', 34, 'carlos.ruiz@gmail.com', '611223344'), [42001-232]
+2025-05-13 10:51:36.332861+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'2024-02-05', 'Marta', 'López Díaz', 29, 'marta.lopez@gmail.com', '622334455'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'2024-02-05', 'Marta', 'López Díaz', 29, 'marta.lopez@gmail.com', '622334455'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('2024-02-05', 'Marta', 'López Díaz', 29, 'marta.lopez@gmail.com', '622334455'), [42001-232]
+2025-05-13 10:51:36.334855+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'2024-03-12', 'David', 'Sánchez Herrera', 42, 'david.sanchez@yahoo.com', '633445566'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'2024-03-12', 'David', 'Sánchez Herrera', 42, 'david.sanchez@yahoo.com', '633445566'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('2024-03-12', 'David', 'Sánchez Herrera', 42, 'david.sanchez@yahoo.com', '633445566'), [42001-232]
+2025-05-13 10:51:36.335852+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'2024-01-20', 'Sofía', 'Jiménez Morales', 24, 'sofia.jimenez@hotmail.com', '644556677'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'2024-01-20', 'Sofía', 'Jiménez Morales', 24, 'sofia.jimenez@hotmail.com', '644556677'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('2024-01-20', 'Sofía', 'Jiménez Morales', 24, 'sofia.jimenez@hotmail.com', '644556677'), [42001-232]
+2025-05-13 10:51:36.336850+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'2024-02-28', 'Pedro', 'Ramírez Torres', 30, 'pedro.ramirez@gmail.com', '655667788'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'2024-02-28', 'Pedro', 'Ramírez Torres', 30, 'pedro.ramirez@gmail.com', '655667788'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('2024-02-28', 'Pedro', 'Ramírez Torres', 30, 'pedro.ramirez@gmail.com', '655667788'), [42001-232]
+2025-05-13 10:51:36.338844+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'2024-03-10', 'Lucía', 'Ortega Núñez', 27, 'lucia.ortega@gmail.com', '666778899'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'2024-03-10', 'Lucía', 'Ortega Núñez', 27, 'lucia.ortega@gmail.com', '666778899'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('2024-03-10', 'Lucía', 'Ortega Núñez', 27, 'lucia.ortega@gmail.com', '666778899'), [42001-232]
+2025-05-13 10:51:36.339842+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'2023-11-15', 'Javier', 'Castro León', 38, 'javier.castro@outlook.com', '677889900'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'2023-11-15', 'Javier', 'Castro León', 38, 'javier.castro@outlook.com', '677889900'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('2023-11-15', 'Javier', 'Castro León', 38, 'javier.castro@outlook.com', '677889900'), [42001-232]
+2025-05-13 10:51:36.340840+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'2024-02-20', 'Elena', 'Domínguez Vidal', 25, 'elena.dominguez@gmail.com', '688990011'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'2024-02-20', 'Elena', 'Domínguez Vidal', 25, 'elena.dominguez@gmail.com', '688990011'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('2024-02-20', 'Elena', 'Domínguez Vidal', 25, 'elena.dominguez@gmail.com', '688990011'), [42001-232]
+2025-05-13 10:51:36.342833+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'2024-01-25', 'Manuel', 'Gallardo Cano', 36, 'manuel.gallardo@yahoo.com', '699001122'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'2024-01-25', 'Manuel', 'Gallardo Cano', 36, 'manuel.gallardo@yahoo.com', '699001122'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('2024-01-25', 'Manuel', 'Gallardo Cano', 36, 'manuel.gallardo@yahoo.com', '699001122'), [42001-232]
+2025-05-13 10:51:36.343832+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'2024-01-10', 'Alicia', 'Paredes Ruiz', 23, 'alicia.paredes@gmail.com', '611112233'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'2024-01-10', 'Alicia', 'Paredes Ruiz', 23, 'alicia.paredes@gmail.com', '611112233'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('2024-01-10', 'Alicia', 'Paredes Ruiz', 23, 'alicia.paredes@gmail.com', '611112233'), [42001-232]
+2025-05-13 10:51:36.343832+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'2024-02-18', 'Sergio', 'Molina Vega', 31, 'sergio.molina@hotmail.com', '622223344'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'2024-02-18', 'Sergio', 'Molina Vega', 31, 'sergio.molina@hotmail.com', '622223344'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('2024-02-18', 'Sergio', 'Molina Vega', 31, 'sergio.molina@hotmail.com', '622223344'), [42001-232]
+2025-05-13 10:51:36.344828+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'2024-03-01', 'Patricia', 'Herrera Ponce', 33, 'patricia.herrera@gmail.com', '633334455'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'2024-03-01', 'Patricia', 'Herrera Ponce', 33, 'patricia.herrera@gmail.com', '633334455'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('2024-03-01', 'Patricia', 'Herrera Ponce', 33, 'patricia.herrera@gmail.com', '633334455'), [42001-232]
+2025-05-13 10:51:36.345826+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'2024-01-30', 'Francisco', 'Navarro Reina', 46, 'fran.navarro@gmail.com', '644445566'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'2024-01-30', 'Francisco', 'Navarro Reina', 46, 'fran.navarro@gmail.com', '644445566'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('2024-01-30', 'Francisco', 'Navarro Reina', 46, 'fran.navarro@gmail.com', '644445566'), [42001-232]
+2025-05-13 10:51:36.347821+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'2024-04-05', 'Irene', 'Guerrero Soto', 28, 'irene.guerrero@gmail.com', '655556677'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'2024-04-05', 'Irene', 'Guerrero Soto', 28, 'irene.guerrero@gmail.com', '655556677'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('2024-04-05', 'Irene', 'Guerrero Soto', 28, 'irene.guerrero@gmail.com', '655556677'), [42001-232]
+2025-05-13 10:51:36.348827+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'2024-03-15', 'Álvaro', 'Fernández Lobo', 35, 'alvaro.fernandez@hotmail.com', '666667788'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'2024-03-15', 'Álvaro', 'Fernández Lobo', 35, 'alvaro.fernandez@hotmail.com', '666667788'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('2024-03-15', 'Álvaro', 'Fernández Lobo', 35, 'alvaro.fernandez@hotmail.com', '666667788'), [42001-232]
+2025-05-13 10:51:36.348827+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'2024-02-12', 'Nuria', 'Carrillo Méndez', 26, 'nuria.carrillo@gmail.com', '677778899'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'2024-02-12', 'Nuria', 'Carrillo Méndez', 26, 'nuria.carrillo@gmail.com', '677778899'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('2024-02-12', 'Nuria', 'Carrillo Méndez', 26, 'nuria.carrillo@gmail.com', '677778899'), [42001-232]
+2025-05-13 10:51:36.353804+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'2024-03-08', 'Jorge', 'Delgado Serrano', 32, 'jorge.delgado@gmail.com', '688889900'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'2024-03-08', 'Jorge', 'Delgado Serrano', 32, 'jorge.delgado@gmail.com', '688889900'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('2024-03-08', 'Jorge', 'Delgado Serrano', 32, 'jorge.delgado@gmail.com', '688889900'), [42001-232]
+2025-05-13 10:51:36.355799+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'2024-01-18', 'Claudia', 'Moreno Gil', 29, 'claudia.moreno@gmail.com', '699990011'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'2024-01-18', 'Claudia', 'Moreno Gil', 29, 'claudia.moreno@gmail.com', '699990011'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('2024-01-18', 'Claudia', 'Moreno Gil', 29, 'claudia.moreno@gmail.com', '699990011'), [42001-232]
+2025-05-13 10:51:36.356796+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'2024-03-20', 'Raúl', 'Iglesias Bravo', 40, 'raul.iglesias@gmail.com', '600001122')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'2024-03-20', 'Raúl', 'Iglesias Bravo', 40, 'raul.iglesias@gmail.com', '600001122')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('2024-03-20', 'Raúl', 'Iglesias Bravo', 40, 'raul.iglesias@gmail.com', '600001122') [42001-232]
+2025-05-13 10:54:25.930142+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "FECHA_ALTA" no encontrada
+Column "FECHA_ALTA" not found; SQL statement:
+INSERT INTO cliente (fecha_alta, nombre, apellidos, edad, email, telefono) [42122-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:786)
+	at org.h2.command.Parser.parseColumn(Parser.java:1171)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1156)
+	at org.h2.command.Parser.parseInsert(Parser.java:1530)
+	at org.h2.command.Parser.parsePrepared(Parser.java:698)
+	at org.h2.command.Parser.parse(Parser.java:581)
+	at org.h2.command.Parser.parse(Parser.java:556)
+	at org.h2.command.Parser.prepareCommand(Parser.java:484)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:645)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:561)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1164)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:694)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:597)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:186)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:144)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:120)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:250)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1865)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1814)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351)
+	at com.salesianostriana.dam.carmonajimenezhugo.CarmonaJimenezHugoApplication.main(CarmonaJimenezHugoApplication.java:10)
+2025-05-13 10:55:25.287529+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "FECHA_ALTA" no encontrada
+Column "FECHA_ALTA" not found; SQL statement:
+INSERT INTO cliente (fecha_alta, nombre, apellidos, edad, email, telefono) VALUES ('2024-02-12', 'Nuria', 'Carrillo Méndez', 26, 'nuria.carrillo@gmail.com', '677778899') [42122-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:786)
+	at org.h2.command.Parser.parseColumn(Parser.java:1171)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1156)
+	at org.h2.command.Parser.parseInsert(Parser.java:1530)
+	at org.h2.command.Parser.parsePrepared(Parser.java:698)
+	at org.h2.command.Parser.parse(Parser.java:581)
+	at org.h2.command.Parser.parse(Parser.java:556)
+	at org.h2.command.Parser.prepareCommand(Parser.java:484)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:645)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:561)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1164)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:694)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:597)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:186)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:144)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:120)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:250)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1865)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1814)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351)
+	at com.salesianostriana.dam.carmonajimenezhugo.CarmonaJimenezHugoApplication.main(CarmonaJimenezHugoApplication.java:10)

@@ -3,7 +3,7 @@ package com.salesianostriana.dam.carmonajimenezhugo.service.base;
 import java.util.List;
 import java.util.Optional;
 
-public interface BaseServiceRutina<T, ID> {
+public interface BaseService<T, ID> {
 
 	List<T> findAll();
 	

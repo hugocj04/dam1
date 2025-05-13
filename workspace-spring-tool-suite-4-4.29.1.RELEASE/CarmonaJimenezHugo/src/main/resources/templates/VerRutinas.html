@@ -15,10 +15,32 @@
     <div th:replace="fragments :: menu">
     </div>
 
-    <main class="container-fluid flex-grow-1 py-4">
-        <h1 class="m-0 mx-auto">Ver rutinas</h1>
-    </main>
+    <!-- Hay que mostrar todas la tablas cargando un numero predeterminado de entidades, y la posibilidad de filtrar por cliente -->
 
+    <main class="container py-5">
+        <h1 class="mb-5 text-center">Ver Rutinas</h1>
+
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form th:action="@{/verRutinas/cliente}" method="get" class="card p-4 shadow-sm border-0">
+                    <div class="mb-3">
+                        <label for="clienteId" class="form-label fw-semibold">Selecciona un cliente</label>
+                        <select name="clienteId" id="clienteId" class="form-select" required>
+                            <option value="" disabled selected>Selecciona un cliente</option>
+                            <option th:each="cliente : ${clientes}"
+                                    th:value="${cliente.id}"
+                                    th:text="${cliente.nombre + ' ' + cliente.apellidos}">
+                            </option>
+                        </select>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Ver Rutinas</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    
     <footer th:replace="fragments :: footer">
     </footer>
 </body>
