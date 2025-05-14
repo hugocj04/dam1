@@ -22,11 +22,6 @@ public class ControllerPrincipal {
         return "verClientes";
     }
 
-    @GetMapping("/asignar")
-    public String asignar() {
-        return "asignar";
-    }
-
     @GetMapping("/verProgreso")
     public String verProgreso() {
         return "verProgreso";

@@ -16,28 +16,33 @@
     </div>
 
     <main class="container-fluid flex-grow-1 py-4">
-        <h1 class="mb-4 text-center">Ver Rutinas</h1>
+        <h2 class="mb-5 text-center">Ver Rutinas</h2>
 
-        <form th:action="@{/verRutinas/cliente}" method="get" class="row g-3">
-            <div class="col-auto">
-                <select name="clienteId" class="form-select" required>
-                    <option value="" disabled selected>Selecciona un cliente</option>
-                    <option th:each="cliente : ${clientes}"
-                            th:value="${cliente.id}"
-                            th:text="${cliente.nombre + ' ' + cliente.apellidos}">
-                    </option>
-                </select>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form th:action="@{/verRutinas/cliente}" method="get" class="border rounded p-4 shadow-sm bg-light">
+                    <div class="mb-3">
+                        <label for="clienteId" class="form-label fw-semibold">Selecciona un cliente</label>
+                        <select name="clienteId" id="clienteId" class="form-select" required>
+                            <option value="" disabled selected>Selecciona un cliente</option>
+                            <option th:each="cliente : ${clientes}"
+                                    th:value="${cliente.id}"
+                                    th:text="${cliente.nombre + ' ' + cliente.apellidos}">
+                            </option>
+                        </select>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Ver Rutinas</button>
+                    </div>
+                </form>
             </div>
-            <div>
-                <button th:action="@{/verRutinas/cliente}" type="submit" class="btn btn-primary">Ver Rutinas</button>
-            </div>
-        </form>
+        </div>
 
-        <br />
+        <div class="mt-5 text-center">
+            <h3>Rutinas de <span th:text="${cliente.nombre}">Cliente</span></h3>
+        </div>
 
-        <h3 class="m-0 mx-auto">Rutinas de <span th:text="${cliente.nombre}">Cliente</span></h3>
-
-        <div th:if="${cliente.plani != null and not #lists.isEmpty(cliente.plani)}">
+        <div th:if="${cliente.plani != null and not #lists.isEmpty(cliente.plani)}" class="mt-4">
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -60,7 +65,7 @@
             </table>
         </div>
 
-        <div th:if="${cliente.plani == null or #lists.isEmpty(cliente.plani)}">
+        <div th:if="${cliente.plani == null or #lists.isEmpty(cliente.plani)}" class="mt-4 text-center">
             <p>No se han encontrado rutinas para este cliente.</p>
         </div>
     </main>

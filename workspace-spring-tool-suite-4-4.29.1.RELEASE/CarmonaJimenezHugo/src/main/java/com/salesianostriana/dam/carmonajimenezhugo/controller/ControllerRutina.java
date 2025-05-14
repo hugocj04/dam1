@@ -16,21 +16,23 @@ import com.salesianostriana.dam.carmonajimenezhugo.service.ServiceRutina;
 @Controller
 public class ControllerRutina {
 
-    @GetMapping("/crear")
-    public String showForm(Model model) {
-    	Rutina rutina = new Rutina();
-    	model.addAttribute("rutina", rutina);
-        return "crear";
-    }
+	@GetMapping("/asignarRutina")
+	public String mostrarFormularioRutina(Model model) {
+	    model.addAttribute("rutina", new Rutina());
+	    model.addAttribute("clientes", serviceCliente.findAll());
+	    return "asignar";
+	}
 	
     @Autowired
     private ServiceRutina serviceRutina;
     
         
-    @PostMapping("/crear")
+    @PostMapping("/asignarRutina")
     public String submit(@ModelAttribute Rutina rutina, Model model) {
+    	Cliente cliente = serviceCliente.findById(rutina.getCliente().getId()).orElse(null);
+    	rutina.setCliente(cliente);
     	serviceRutina.save(rutina);
-    	return "redirect:/crear";
+    	return "redirect:/asignarRutina";
     }
 
     @Autowired ServiceCliente serviceCliente;
@@ -45,6 +47,7 @@ public class ControllerRutina {
     public String mostrarRutinasCliente(@RequestParam(name="clienteId") long id, Model model) {
         Cliente cliente = serviceCliente.buscarPorId(id);
         model.addAttribute("cliente", cliente);
+        model.addAttribute("clientes", serviceCliente.listarClientes());
         return "rutina_cliente";
     }
 

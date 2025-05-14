@@ -15,4 +15,5 @@ public class ServiceRutina extends BaseServiceImpl <Rutina, Long, RepositoryRuti
 		return findAll();
 	}
 
+	// Crear un ordenar por numero de ejercicios
 }
