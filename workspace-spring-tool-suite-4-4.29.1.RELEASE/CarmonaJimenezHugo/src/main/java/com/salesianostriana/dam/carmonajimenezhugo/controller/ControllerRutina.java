@@ -1,10 +1,13 @@
 package com.salesianostriana.dam.carmonajimenezhugo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -37,18 +40,56 @@ public class ControllerRutina {
 
     @Autowired ServiceCliente serviceCliente;
 
-    @GetMapping("/verRutinas")
+    @GetMapping("/gestionRutinas")
     public String verRutinasForm(Model model) {
         model.addAttribute("clientes", serviceCliente.listarClientes());
-        return "VerRutinas";
+        model.addAttribute("rutinas", serviceRutina.listarRutinas());
+        return "gestionRutinas";
     }
 
-    @GetMapping("/verRutinas/cliente")
-    public String mostrarRutinasCliente(@RequestParam(name="clienteId") long id, Model model) {
+    @GetMapping("/gestionRutinas/cliente")
+    public String mostrarRutinasCliente(@RequestParam(name="clienteId", required = false) Long id, Model model) {
+    	
+    	if (id == null) {
+    		return "redirect:/gestionRutinas";
+    	}
+    	
         Cliente cliente = serviceCliente.buscarPorId(id);
         model.addAttribute("cliente", cliente);
         model.addAttribute("clientes", serviceCliente.listarClientes());
         return "rutina_cliente";
     }
+    
+    @GetMapping("/editarRutinaCliente/{id}")
+    public String llevarAEditar(@PathVariable long id, Model model) {
+        Cliente cliente = serviceCliente.buscarPorId(id);
+        model.addAttribute("cliente", cliente);
+        model.addAttribute("rutinas", cliente.getPlani());
+        model.addAttribute("rutina", new Rutina());
+        return "editar";
+    }
+
+    @PostMapping("/gestionRutina/editar/{id}")
+    public String editarRutina(@PathVariable long id, Model model) {
+        Cliente cliente = serviceCliente.buscarPorId(id);
+        model.addAttribute("cliente", cliente);
+        model.addAttribute("rutinas", cliente.getPlani());
+        return "redirect:/gestionRutinas/cliente";
+    }
+
+    @PostMapping("/gestionRutina/borrar/{id}")
+    public String borrarRutina(@PathVariable long id) {
+        List<Rutina> rutinas = serviceRutina.findAll().stream()
+        		.filter(r -> r.getCliente().getId() == id)
+        		.toList();
+        
+        rutinas.forEach(r -> {
+        	serviceRutina.delete(r);
+        });
+        
+        return "redirect:/gestionRutinas";
+    }
+    
+    
 
 }

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymPlanner - Gestión de rutinas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body class="d-flex flex-column min-vh-100 bg-white">
+
+    <header th:replace="fragments :: header"></header>
+    <div th:replace="fragments :: menu"></div>
+
+    <main class="container-fluid flex-grow-1 py-4">
+        <h2 class="mb-4 text-center">Rutinas</h2>
+
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-6">
+                <form th:action="@{/gestionRutinas/cliente}" method="get" class="border rounded p-4 shadow-sm bg-light">
+                    <div class="mb-3">
+                        <label for="clienteId" class="form-label fw-semibold">Filtrar por cliente</label>
+                        <select name="clienteId" id="clienteId" class="form-select">
+                            <option value="">— Todos —</option>
+                            <option th:each="cli : ${clientes}"
+                                    th:value="${cli.id}"
+                                    th:selected="${clienteSeleccionado} == ${cli.id}"
+                                    th:text="${cli.nombre + ' ' + cli.apellidos}">
+                            </option>
+                        </select>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Aplicar filtro</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-10">
+
+
+                <h3 th:text="'Rutina de ' + ${cliente.nombre} + ' ' + ${cliente.apellidos}"></h3>
+
+                <form method="POST" th:action="@{'/gestionRutina/editar/' + ${cliente.id}}" th:object="${rutina}"
+                    class="table-responsive shadow-sm">
+                    <table class="table table-bordered bg-white shadow-sm">
+                        <thead class="table-primary text-center">
+                            <tr>
+                                <th>Día</th>
+                                <th>Ejercicio</th>
+                                <th>Series</th>
+                                <th>Repeticiones</th>
+                                <th>Descanso</th>
+                                <th>Peso (Kg)</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody th:each="rutina : ${rutinas}">
+                            <tr>
+                                <td>
+                                    <input type="text" th:value="${rutina.diaSemana}" th:field="*{diaSemana}" class="form-control" required>
+                                </td>
+                                <td>
+                                    <input type="text" th:field="*{ejercicio}" class="form-control" required>
+                                </td>
+                                <td>
+                                    <input type="number" th:field="*{series}" class="form-control" required>
+                                </td>
+                                <td>
+                                    <input type="number" th:field="*{repeticiones}" class="form-control" required>
+                                </td>
+                                <td>
+                                    <input type="time" th:field="*{descanso}" class="form-control" required>
+                                </td>
+                                <td>
+                                    <input type="number" th:field="*{peso}" class="form-control" required>
+                                </td>
+                                <td class="text-center">
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="bi bi-plus-circle"></i> Añadir
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+    <footer th:replace="fragments :: footer"></footer>
+</body>
+
+</html>
