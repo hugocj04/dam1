@@ -18,7 +18,7 @@ public class ServiceRutina extends BaseServiceImpl <Rutina, Long, RepositoryRuti
 	public void eliminarPorId(long id) {
 		deleteById(id);
 	}
-		
+	
 	// Crear un ordenar por numero de ejercicios
 	
 }

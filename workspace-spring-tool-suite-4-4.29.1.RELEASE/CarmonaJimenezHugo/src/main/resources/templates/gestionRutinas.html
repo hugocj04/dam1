@@ -41,7 +41,7 @@
         <div class="row justify-content-center mt-5">
             <div class="col-md-10">
 
-                <div th:each="cliente : ${clientes}" th:if="${!cliente.plani.isEmpty()}">
+                <div th:each="cliente : ${clientes}" th:if="${!cliente.ListaRutinas.isEmpty()}">
 
                     <h3 th:text="'Rutina de ' + ${cliente.nombre} + ' ' + ${cliente.apellidos}"></h3>
 
@@ -57,7 +57,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="rutina : ${cliente.plani}">
+                            <tr th:each="rutina : ${cliente.ListaRutinas}">
                                 <td th:text="${rutina.diaSemana}"></td>
                                 <td th:text="${rutina.ejercicio}"></td>
                                 <td th:text="${rutina.series}"></td>
@@ -70,7 +70,7 @@
                     
                     <div class="d-flex gap-2 justify-content-end mb-5">
 
-                        <a th:href="@{'/editarRutinaCliente/' + ${cliente.id}}" class="btn btn-outline-primary">
+                        <a th:href="@{'/gestionRutinas/editar/' + ${cliente.id}}" class="btn btn-outline-primary">
                             <i class="bi bi-pencil-square"></i> Editar rutinas
                         </a>
 

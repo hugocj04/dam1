@@ -8,4 +8,5 @@ import com.salesianostriana.dam.carmonajimenezhugo.model.Rutina;
 @Repository
 public interface RepositoryRutina extends JpaRepository<Rutina, Long>{
 
+	
 }

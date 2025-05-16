@@ -60,23 +60,41 @@ public class ControllerRutina {
         return "rutina_cliente";
     }
     
-    @GetMapping("/editarRutinaCliente/{id}")
-    public String llevarAEditar(@PathVariable long id, Model model) {
-        Cliente cliente = serviceCliente.buscarPorId(id);
-        model.addAttribute("cliente", cliente);
-        model.addAttribute("rutinas", cliente.getPlani());
-        model.addAttribute("rutina", new Rutina());
-        return "editar";
-    }
+    @GetMapping("/gestionRutinas/editar/{id}")
+    public String editarRutina(@PathVariable Long id, Model model) {
+        Rutina rutina = serviceRutina.findById(id).orElse(null);
 
-    @PostMapping("/gestionRutina/editar/{id}")
-    public String editarRutina(@PathVariable long id, Model model) {
-        Cliente cliente = serviceCliente.buscarPorId(id);
-        model.addAttribute("cliente", cliente);
-        model.addAttribute("rutinas", cliente.getPlani());
-        return "redirect:/gestionRutinas/cliente";
-    }
+        if (rutina == null) {
+            return "redirect:/gestionRutinas";
+        }
 
+        Cliente cliente = rutina.getCliente();
+
+        List<Rutina> rutinas = cliente.getListaRutinas(); 
+
+        model.addAttribute("cliente", cliente);
+        model.addAttribute("rutinas", rutinas);
+        model.addAttribute("rutina", rutina); 
+        return "editar"; 
+    }
+    
+    @PostMapping("/gestionRutinas/editar/{id}")
+    public String guardarRutinas(@PathVariable Long id, @ModelAttribute("rutina") Rutina rutinaActualizada) {
+        Rutina rutina = serviceRutina.findById(id).orElse(null);
+        if (rutina != null) {
+            // Actualiza los campos de la rutina
+            rutina.setDiaSemana(rutinaActualizada.getDiaSemana());
+            rutina.setEjercicio(rutinaActualizada.getEjercicio());
+            rutina.setSeries(rutinaActualizada.getSeries());
+            rutina.setRepeticiones(rutinaActualizada.getRepeticiones());
+            rutina.setDescanso(rutinaActualizada.getDescanso());
+            rutina.setPeso(rutinaActualizada.getPeso());
+
+            serviceRutina.save(rutina);
+        }
+        return "redirect:/gestionRutinas/cliente?clienteId=" + rutina.getCliente().getId();
+    }
+    
     @PostMapping("/gestionRutina/borrar/{id}")
     public String borrarRutina(@PathVariable long id) {
         List<Rutina> rutinas = serviceRutina.findAll().stream()
@@ -88,8 +106,8 @@ public class ControllerRutina {
         });
         
         return "redirect:/gestionRutinas";
-    }
+    } 
     
     
-
+    
 }

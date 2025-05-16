@@ -42,9 +42,9 @@
             <div class="col-md-10">
 
                 <div th:if="${cliente != null}">
-                    <h4 class="mb-3 text-center" th:text="'Rutinas de ' + ${cliente.nombre} + ' ' + ${cliente.apellidos}"></h4>
+                    <h3 th:text="'Rutina de ' + ${cliente.nombre} + ' ' + ${cliente.apellidos}"></h3>
                     
-                    <div th:if="${not #lists.isEmpty(cliente.plani)}">
+                    <div th:if="${not #lists.isEmpty(cliente.ListaRutinas)}">
                         <table class="table table-bordered table-hover shadow-sm bg-white">
                             <thead class="table-primary">
                                 <tr>
@@ -57,7 +57,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each="rutina : ${cliente.plani}">
+                                <tr th:each="rutina : ${cliente.ListaRutinas}">
                                     <td th:text="${rutina.diaSemana}"></td>
                                     <td th:text="${rutina.ejercicio}"></td>
                                     <td th:text="${rutina.series}"></td>
@@ -70,7 +70,7 @@
 
                         <div class="d-flex gap-2 justify-content-end mb-5">
 
-                            <a th:href="@{'/editarRutinaCliente/' + ${cliente.id}}" class="btn btn-outline-primary">
+                            <a th:href="@{'/gestionRutinas/editar/' + ${cliente.id}}" class="btn btn-outline-primary">
                                 <i class="bi bi-pencil-square"></i> Editar rutinas
                             </a>
 
@@ -85,7 +85,7 @@
                     </div>
                     
 
-                    <div th:if="${#lists.isEmpty(cliente.plani)}" class="mt-4 text-center">
+                    <div th:if="${#lists.isEmpty(cliente.ListaRutinas)}" class="mt-4 text-center">
                         <p>No se han encontrado rutinas para este cliente.</p>
                     </div>
                 </div>
