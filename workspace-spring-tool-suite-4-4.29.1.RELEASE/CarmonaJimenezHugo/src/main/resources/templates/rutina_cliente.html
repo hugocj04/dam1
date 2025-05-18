@@ -48,12 +48,12 @@
                         <table class="table table-bordered table-hover shadow-sm bg-white">
                             <thead class="table-primary">
                                 <tr>
-                                    <th>Día de la semana</th>
+                                    <th>Día</th>
                                     <th>Ejercicio</th>
                                     <th>Series</th>
                                     <th>Repeticiones</th>
-                                    <th>Descanso</th>
                                     <th>Peso (Kg)</th>
+                                    <th>Descanso</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -62,24 +62,24 @@
                                     <td th:text="${rutina.ejercicio}"></td>
                                     <td th:text="${rutina.series}"></td>
                                     <td th:text="${rutina.repeticiones}"></td>
-                                    <td th:text="${rutina.descanso}"></td>
                                     <td th:text="${rutina.peso}"></td>
+                                    <td th:text="${rutina.descanso}"></td>
                                 </tr>
                             </tbody>
                         </table>
 
                         <div class="d-flex gap-2 justify-content-end mb-5">
 
-                            <a th:href="@{'/gestionRutinas/editar/' + ${cliente.id}}" class="btn btn-outline-primary">
-                                <i class="bi bi-pencil-square"></i> Editar rutinas
+                            <a th:href="@{/gestionRutinas/editar/{id}(id=${cliente.id})}" class="btn btn-outline-primary">
+                                <i class="bi bi-pencil-square"></i> Editar
                             </a>
-
-                            <form th:action="@{'/gestionRutina/borrar/' + ${cliente.id}}" method="post" class="d-inline">
+    
+                            <form th:action="@{'/gestionRutinas/borrar/' + ${cliente.id}}" method="post">
                                 <button type="submit" class="btn btn-outline-danger">
                                     <i class="bi bi-trash"></i> Borrar rutinas
                                 </button>
                             </form>
-
+    
                         </div>
 
                     </div>

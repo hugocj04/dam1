@@ -13,36 +13,57 @@
 
     <div th:replace="fragments :: menu"></div>
 
-    <main class="container-fluid flex-grow-1 py-4">
-        <h2 class="text-center mb-4">Registrar cliente</h2>
+    <main class="container flex-grow-1 py-4">
+        <div class="text-center mb-4">
+            <h2>Registrar cliente</h2>
+            <p class="text-muted">Complete los datos del nuevo cliente</p>
+        </div>
+        
         <div class="row justify-content-center">
-            <div class="col-md-6">
-                <form method="POST" th:action="@{/registrar}" th:object="${cliente}" class="border rounded p-4 shadow-sm bg-light">
-                    <div class="mb-3">
-                        <label for="fecha" class="form-label">Fecha de registro</label>
-                        <input type="date" th:field="*{fecha}" class="form-control" id="fecha" required>
+            <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5"> <!-- Columnas progresivamente más estrechas -->
+                <form method="POST" th:action="@{/registrar}" th:object="${cliente}" 
+                      class="border rounded p-3 p-sm-4 shadow-sm bg-light mx-auto" style="max-width: 500px;"> <!-- max-width con estilo inline -->
+                    
+                    <div class="row g-3">
+                        <!-- Fecha -->
+                        <div class="col-12">
+                            <label for="fecha" class="form-label">Fecha de registro</label>
+                            <input type="date" th:field="*{fecha}" class="form-control form-control-sm" id="fecha" required>
+                        </div>
+                        
+                        <!-- Nombre y Apellidos -->
+                        <div class="col-md-6">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" th:field="*{nombre}" class="form-control form-control-sm" id="nombre" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="apellidos" class="form-label">Apellidos</label>
+                            <input type="text" th:field="*{apellidos}" class="form-control form-control-sm" id="apellidos" required>
+                        </div>
+                        
+                        <!-- Edad y Teléfono -->
+                        <div class="col-md-6">
+                            <label for="edad" class="form-label">Edad</label>
+                            <input type="number" th:field="*{edad}" class="form-control form-control-sm" id="edad" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="telefono" class="form-label">Teléfono</label>
+                            <input type="tel" th:field="*{telefono}" class="form-control form-control-sm" id="telefono" required>
+                        </div>
+                        
+                        <!-- Email -->
+                        <div class="col-12">
+                            <label for="email" class="form-label">Correo electrónico</label>
+                            <input type="email" th:field="*{email}" class="form-control form-control-sm" id="email" required>
+                        </div>
+                        
+                        <!-- Botón de submit -->
+                        <div class="col-12 mt-3">
+                            <button type="submit" class="btn btn-success w-100 py-2">
+                                <i class="bi bi-person-plus me-2"></i>Agregar cliente
+                            </button>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" th:field="*{nombre}" class="form-control" id="nombre" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="apellidos" class="form-label">Apellidos</label>
-                        <input type="text" th:field="*{apellidos}" class="form-control" id="apellidos" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="edad" class="form-label">Edad</label>
-                        <input type="number" th:field="*{edad}" class="form-control" id="edad" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Correo electrónico</label>
-                        <input type="email" th:field="*{email}" class="form-control" id="email" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="telefono" class="form-label">Teléfono</label>
-                        <input type="tel" th:field="*{telefono}" class="form-control" id="telefono" required>
-                    </div>
-                    <button type="submit" class="btn btn-success w-100">Agregar cliente</button>
                 </form>
             </div>
         </div>
@@ -50,3 +71,4 @@
         
     <footer th:replace="fragments :: footer"></footer>
 </body>
+</html>

@@ -52,7 +52,7 @@
                                 <th>Ejercicio</th>
                                 <th>Series</th>
                                 <th>Repeticiones</th>
-                                <th>Peso (kg)</th>
+                                <th>Peso (Kg)</th>
                                 <th>Descanso</th>
                             </tr>
                         </thead>
@@ -69,17 +69,15 @@
                     </table>
                     
                     <div class="d-flex gap-2 justify-content-end mb-5">
-
                         <a th:href="@{'/gestionRutinas/editar/' + ${cliente.id}}" class="btn btn-outline-primary">
-                            <i class="bi bi-pencil-square"></i> Editar rutinas
+                            <i class="bi bi-pencil-square"></i> Editar
                         </a>
 
-                        <form th:action="@{'/gestionRutina/borrar/' + ${cliente.id}}" method="post" class="d-inline">
+                        <form th:action="@{'/gestionRutinas/borrar/' + ${cliente.id}}" method="post">
                             <button type="submit" class="btn btn-outline-danger">
                                 <i class="bi bi-trash"></i> Borrar rutinas
                             </button>
                         </form>
-
                     </div>
 
                 </div>

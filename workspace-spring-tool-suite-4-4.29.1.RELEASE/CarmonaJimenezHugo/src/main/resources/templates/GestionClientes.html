@@ -24,7 +24,8 @@
                         <th>Apellidos</th>
                         <th>Edad</th>
                         <th>Email</th>
-                        <th>Telefono</th>
+                        <th>Teléfono</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,7 +35,19 @@
                         <td th:text="${cliente.apellidos}">Apellidos</td>
                         <td th:text="${cliente.edad}">Edad</td>
                         <td th:text="${cliente.email}">Email</td>
-                        <td th:text="${cliente.telefono}">Telefono</td>
+                        <td th:text="${cliente.telefono}">Teléfono</td>
+                        <td class="text-center">
+                            <div class="d-flex gap-2 justify-content-center">
+                                <a th:href="@{'/editarCliente/' + ${cliente.id}}" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-pencil"></i> Editar
+                                </a>
+                                <form th:action="@{'/eliminarCliente/' + ${cliente.id}}" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                                        <i class="bi bi-trash"></i> Borrar
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
