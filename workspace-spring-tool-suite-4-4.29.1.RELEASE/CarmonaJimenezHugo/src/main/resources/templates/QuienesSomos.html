@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymPlanner - Quiénes Somos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="d-flex flex-column min-vh-100 bg-white">
+    <header th:replace="fragments :: header"></header>
+    
+    <div th:replace="fragments :: menu"></div>
+
+    <main class="container-fluid flex-grow-1">
+        <div class="bg-dark text-white py-5">
+            <div class="container py-4">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h1 class="display-4 fw-bold mb-4">Nuestra Historia</h1>
+                        <p class="lead mb-4">
+                            Transformando la gestión de gimnasios con tecnología innovadora y pasión por el fitness.
+                        </p>
+                        <div class="d-flex gap-3">
+                            <span class="badge bg-primary fs-6 py-2 px-3">
+                                <i class="bi bi-people-fill me-2"></i>+500 clientes
+                            </span>
+                            <span class="badge bg-success fs-6 py-2 px-3">
+                                <i class="bi bi-award-fill me-2"></i>Desde 2020
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-4 mt-lg-0">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Z3ltJTIwdHJhaW5lcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60" 
+                             alt="Equipo GymPlanner" 
+                             class="img-fluid rounded-3 shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container my-5 py-4">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="p-4 bg-light rounded-3 h-100">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-bullseye fs-1 text-primary me-3"></i>
+                            <h2 class="mb-0 text-dark">Misión</h2>
+                        </div>
+                        <p class="text-dark fs-5">
+                            Simplificar la gestión de gimnasios con herramientas intuitivas que permitan a los entrenadores enfocarse en lo que realmente importa: sus atletas.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4 bg-light rounded-3 h-100">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-eye fs-1 text-success me-3"></i>
+                            <h2 class="mb-0 text-dark">Visión</h2>
+                        </div>
+                        <p class="text-dark fs-5">
+                            Ser el ecosistema tecnológico líder para la gestión integral del fitness a nivel mundial.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-light py-5">
+            <div class="container">
+                <h2 class="text-center mb-5 display-5 fw-bold text-dark">Nuestro Espacio</h2>
+                <p class="text-center text-muted lead mb-5">Conoce las instalaciones donde creamos la magia de GymPlanner</p>
+                
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-0 shadow-sm h-100">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b2ZmaWNlJTIwdGVjaHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60" 
+                                 class="card-img-top" 
+                                 alt="Área de desarrollo">
+                            <div class="card-body">
+                                <h5 class="card-title text-dark">
+                                    <i class="bi bi-code-square text-primary me-2"></i>Área de Desarrollo
+                                </h5>
+                                <p class="card-text text-muted">
+                                    Donde nuestro equipo técnico crea y mejora las funcionalidades de la plataforma.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-0 shadow-sm h-100">
+                            <img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGd5bSUyMHRyYWluaW5nJTIwcm9vbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60" 
+                                 class="card-img-top" 
+                                 alt="Sala de reuniones">
+                            <div class="card-body">
+                                <h5 class="card-title text-dark">
+                                    <i class="bi bi-people-fill text-success me-2"></i>Sala de Entrenadores
+                                </h5>
+                                <p class="card-text text-muted">
+                                    Espacio donde colaboramos con profesionales del fitness para diseñar las mejores soluciones.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-0 shadow-sm h-100">
+                            <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Z3ltJTIwZXF1aXBtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60" 
+                                 class="card-img-top" 
+                                 alt="Zona de testing">
+                            <div class="card-body">
+                                <h5 class="card-title text-dark">
+                                    <i class="bi bi-speedometer2 text-warning me-2"></i>Zona de Pruebas
+                                </h5>
+                                <p class="card-text text-muted">
+                                    Probamos todas las funcionalidades en equipos reales para garantizar su efectividad.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container my-5 py-4">
+            <h2 class="text-center mb-5 display-5 fw-bold text-dark">Nuestros Valores</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <i class="bi bi-heart-fill fs-1 text-danger mb-3"></i>
+                        <h3 class="h4 text-dark">Pasión</h3>
+                        <p class="text-muted">Nos mueve el amor por el fitness y la tecnología.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <i class="bi bi-lightbulb-fill fs-1 text-warning mb-3"></i>
+                        <h3 class="h4 text-dark">Innovación</h3>
+                        <p class="text-muted">Creamos soluciones que marcan la diferencia.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <i class="bi bi-people-fill fs-1 text-primary mb-3"></i>
+                        <h3 class="h4 text-dark">Comunidad</h3>
+                        <p class="text-muted">Creemos en el poder transformador del trabajo en equipo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+          
+    <footer th:replace="fragments :: footer"></footer>
+</body>
+</html>

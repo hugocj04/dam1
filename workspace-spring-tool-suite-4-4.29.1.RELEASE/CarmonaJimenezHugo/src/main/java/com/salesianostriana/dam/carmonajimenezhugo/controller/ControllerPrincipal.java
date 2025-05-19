@@ -9,22 +9,22 @@ public class ControllerPrincipal {
 
     @GetMapping("/")
     public String principal() {
-        return "Principal";
+        return "Inicio";
     }
 
-    @GetMapping("/dashboard")
-    public String dashboard() {
-        return "dashboard";
+    @GetMapping("/quienesSomos")
+    public String quienesSomos() {
+        return "QuienesSomos";
     }
 
-    @GetMapping("/verClientes")
-    public String verClientes() {
-        return "verClientes";
+    @GetMapping("/legal")
+    public String legal() {
+        return "Legal";
     }
 
-    @GetMapping("/verProgreso")
-    public String verProgreso() {
-        return "verProgreso";
+    @GetMapping("/dedicamos")
+    public String dedicamos() {
+        return "Dedicamos";
     }
-    
+
 }
