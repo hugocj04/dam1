@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymPlanner - Análisis de Cliente</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="d-flex flex-column min-vh-100 bg-light">
+    <header th:replace="fragments :: header"></header>
+    
+    <div th:replace="fragments :: menu"></div>
+
+    <main class="container flex-grow-1 py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm border-0 rounded-4 mb-4">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h2 class="mb-0 text-primary fw-bold">
+                                <i class="bi bi-graph-up me-2"></i>Análisis de: 
+                                <span th:text="${cliente.nombre + ' ' + cliente.apellidos}"></span>
+                            </h2>
+                            <a th:href="@{/analisis}" class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-left me-1"></i>Volver
+                            </a>
+                        </div>
+                        
+                        <div th:if="${not #lists.isEmpty(cliente.ListaRutinas)}" class="table-responsive-lg">
+                            <table class="table table-bordered table-hover shadow-sm bg-white">
+                                <thead class="table-primary">
+                                    <tr>
+                                        <th class="text-nowrap px-3">Día</th>
+                                        <th class="px-3">Ejercicio</th>
+                                        <th class="px-3">Series</th>
+                                        <th class="px-3">Repeticiones</th>
+                                        <th class="px-3">Peso (Kg)</th>
+                                        <th class="px-3">Descanso</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="rutina : ${cliente.ListaRutinas}">
+                                        <td th:text="${rutina.diaSemana}" class="fw-semibold px-3"></td>
+                                        <td th:text="${rutina.ejercicio}" class="px-3"></td>
+                                        <td th:text="${rutina.series}" class="text-center px-3"></td>
+                                        <td th:text="${rutina.repeticiones}" class="text-center px-3"></td>
+                                        <td th:text="${rutina.peso}" class="text-center px-3"></td>
+                                        <td th:text="${rutina.descanso}" class="text-center px-3"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary">
+                                    <i class="bi bi-calculator me-2"></i>Opciones de Análisis
+                                </h5>
+                                <hr>
+                                <div class="d-grid gap-3">
+                                    <div class="d-flex gap-2">
+                                        <form th:action="@{'/analisis/cliente/' + ${cliente.id} + '/calcularRM'}" method="post" class="flex-grow-1">
+                                            <button type="submit" class="btn btn-primary w-100 py-3">
+                                                <i class="bi me-2"></i>Calcular 1RM (Repetición Máxima)
+                                            </button>
+                                        </form>
+                                        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modal1RM">
+                                            <i class="bi bi-info-circle"></i>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="d-flex gap-2">
+                                        <form th:action="@{'/analisis/cliente/' + ${cliente.id} + '/calcularVolumen'}" method="post" class="flex-grow-1">
+                                            <button type="submit" class="btn btn-primary w-100 py-3">
+                                                <i class="bi me-2"></i>Calcular Volumen Semanal (Total de series semanales)
+                                            </button>
+                                        </form>
+                                        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalVolumen">
+                                            <i class="bi bi-info-circle"></i>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="d-flex gap-2">
+                                        <form th:action="@{'/analisis/cliente/' + ${cliente.id} + '/calcularTotalKg'}" method="post" class="flex-grow-1">
+                                            <button type="submit" class="btn btn-primary w-100 py-3">
+                                                <i class="bi me-2"></i>Volumen total de Kg levantados
+                                            </button>
+                                        </form>
+                                        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalTotalKg">
+                                            <i class="bi bi-info-circle"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+          
+    <div class="modal fade" id="modal1RM" tabindex="-1" aria-labelledby="modal1RMLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="modal1RMLabel">
+                        <i class="bi me-2"></i>¿Qué es el 1RM?
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>El <strong>1RM (Una repetición máxima)</strong> es el peso máximo que puedes levantar para una sola repetición con la técnica correcta en un ejercicio determinado.</p>
+                    <p>Es un indicador importante de la fuerza máxima y se utiliza para:</p>
+                    <ul>
+                        <li>Establecer intensidades de entrenamiento</li>
+                        <li>Medir el progreso en fuerza</li>
+                        <li>Planificar programas de entrenamiento</li>
+                    </ul>
+                    <p class="mb-0">El cálculo se realiza mediante fórmulas que estiman tu 1RM basándose en el peso que puedes levantar para múltiples repeticiones.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modalVolumen" tabindex="-1" aria-labelledby="modalVolumenLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="modalVolumenLabel">
+                        <i class="bi me-2"></i>Volumen Semanal
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>El <strong>Volumen Semanal de Entrenamiento</strong> es la cantidad total de trabajo realizado en una semana, considerando series por ejercicio</p>
+                    <p class="mb-0">Es un factor clave para la planificación del entrenamiento y la progresión adecuada.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modalTotalKg" tabindex="-1" aria-labelledby="modalTotalKgLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="modalTotalKgLabel">
+                        <i class="bi me-2"></i>Volumen Total de Kg Levantados
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>El <strong>Volumen Total de Kg Levantados</strong> se refiere a la cantidad total de peso levantado en un período de tiempo determinado.</p>
+                    <p>Factores importantes:</p>
+                    <ul>
+                        <li>Permite evaluar la carga de entrenamiento total</li>
+                        <li>Ayuda a identificar patrones de progreso</li>
+                        <li>Puede variar según el nivel del deportista</li>
+                        <li>Influye en la adaptación al entrenamiento</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="fragments :: footer"></footer>
+</body>
+</html>

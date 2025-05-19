@@ -13,58 +13,66 @@
     <header th:replace="fragments :: header"></header>
     <div th:replace="fragments :: menu"></div>
 
-    <main class="container-fluid flex-grow-1 py-4">
+    <main class="container flex-grow-1 py-4">
         <h2 class="mb-4 text-center">Editar Rutinas</h2>
 
-        <div class="row justify-content-center mt-5">
-            <div class="col-md-10">
-                <h3 th:text="'Rutinas de ' + ${cliente.nombre} + ' ' + ${cliente.apellidos}" class="mb-4"></h3>
+        <div class="row justify-content-center">
+            <div class="col-12 col-xl-11"> 
+                <h3 class="h4 mb-4 text-primary" th:text="'Rutina de ' + ${cliente.nombre} + ' ' + ${cliente.apellidos}"></h3>
 
-                <form method="post" th:action="@{'/gestionRutinas/guardar/' + ${cliente.id}}" th:object="${cliente}">
-                    <table class="table table-bordered table-hover shadow-sm bg-white">
-                        <thead class="table-primary">
-                            <tr>
-                                <th>Día</th>
-                                <th>Ejercicio</th>
-                                <th>Series</th>
-                                <th>Repeticiones</th>
-                                <th>Peso (Kg)</th>
-                                <th>Descanso</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="rutina, iterStat : ${cliente.listaRutinas}">
-                                <td>
-                                    <input type="text" th:field="*{listaRutinas[__${iterStat.index}__].diaSemana}" class="form-control" required/>
-                                </td>
-                                <td>
-                                    <input type="text" th:field="*{listaRutinas[__${iterStat.index}__].ejercicio}" class="form-control" required/>
-                                </td>
-                                <td>
-                                    <input type="number" th:field="*{listaRutinas[__${iterStat.index}__].series}" class="form-control" required/>
-                                </td>
-                                <td>
-                                    <input type="number" th:field="*{listaRutinas[__${iterStat.index}__].repeticiones}" class="form-control" required/>
-                                </td>
-                                <td>
-                                    <input type="number" step="0.1" th:field="*{listaRutinas[__${iterStat.index}__].peso}" class="form-control" required/>
-                                </td>
-                                <td>
-                                    <input type="time" th:field="*{listaRutinas[__${iterStat.index}__].descanso}" class="form-control" required/>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="table-responsive-lg">
+                    <form method="post" th:action="@{'/gestionRutinas/guardar/' + ${cliente.id}}" th:object="${cliente}">
+                        <table class="table table-bordered table-hover shadow-sm bg-white">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th class="text-nowrap px-3">Día</th>
+                                    <th class="px-3">Ejercicio</th>
+                                    <th class="px-3">Series</th>
+                                    <th class="px-3">Repeticiones</th>
+                                    <th class="px-3">Peso (Kg)</th>
+                                    <th class="px-3">Descanso</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="rutina, iterStat : ${cliente.listaRutinas}">
+                                    <td class="px-3">
+                                        <input type="text" th:field="*{listaRutinas[__${iterStat.index}__].diaSemana}" 
+                                               class="form-control" required/> 
+                                    </td>
+                                    <td class="px-3">
+                                        <input type="text" th:field="*{listaRutinas[__${iterStat.index}__].ejercicio}" 
+                                               class="form-control" required/>
+                                    </td>
+                                    <td class="px-3">
+                                        <input type="number" th:field="*{listaRutinas[__${iterStat.index}__].series}" 
+                                               class="form-control text-center" required/>
+                                    </td>
+                                    <td class="px-3">
+                                        <input type="number" th:field="*{listaRutinas[__${iterStat.index}__].repeticiones}" 
+                                               class="form-control text-center" required/>
+                                    </td>
+                                    <td class="px-3">
+                                        <input type="number" step="0.1" th:field="*{listaRutinas[__${iterStat.index}__].peso}" 
+                                               class="form-control text-center" required/>
+                                    </td>
+                                    <td class="px-3">
+                                        <input type="time" th:field="*{listaRutinas[__${iterStat.index}__].descanso}" 
+                                               class="form-control text-center" required/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-                    <div class="d-flex justify-content-end gap-2 mt-3">
-                        <button type="submit" class="btn btn-outline-success">
-                            <i class="bi bi-save"></i> Guardar cambios
-                        </button>
-                        <a th:href="@{/gestionRutinas}" class="btn btn-outline-danger">
-                            <i class="bi bi-x-circle"></i> Cancelar
-                        </a>
-                    </div>
-                </form>
+                        <div class="d-flex justify-content-end gap-3 mt-4"> 
+                            <button type="submit" class="btn btn-outline-success px-4">
+                                <i class="bi bi-save"></i> Guardar cambios
+                            </button>
+                            <a th:href="@{/gestionRutinas}" class="btn btn-outline-danger px-4">
+                                <i class="bi bi-x-circle"></i> Cancelar
+                            </a>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </main>

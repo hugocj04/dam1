@@ -22,7 +22,7 @@ public class ServiceRutina extends BaseServiceImpl <Rutina, Long, RepositoryRuti
 	public List<Rutina> findByClienteId(Long clienteId) {
 	    return repository.findByClienteId(clienteId);
 	}
-	
+		
 	// Crear un ordenar por numero de ejercicios
 	
 }

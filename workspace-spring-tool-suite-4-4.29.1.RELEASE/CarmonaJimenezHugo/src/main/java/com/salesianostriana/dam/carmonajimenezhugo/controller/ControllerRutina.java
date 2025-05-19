@@ -1,6 +1,8 @@
 package com.salesianostriana.dam.carmonajimenezhugo.controller;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,8 +23,10 @@ public class ControllerRutina {
 
 	@GetMapping("/asignarRutina")
 	public String mostrarFormularioRutina(Model model) {
+		
 	    model.addAttribute("rutina", new Rutina());
 	    model.addAttribute("clientes", serviceCliente.findAll());
+	    
 	    return "asignar";
 	}
 	
@@ -35,22 +39,27 @@ public class ControllerRutina {
         
     @PostMapping("/asignarRutina")
     public String submit(@ModelAttribute Rutina rutina, Model model) {
+    	
     	Cliente cliente = serviceCliente.findById(rutina.getCliente().getId()).orElse(null);
     	rutina.setCliente(cliente);
     	serviceRutina.save(rutina);
+    	
     	return "redirect:/asignarRutina";
     }
 
 
     @GetMapping("/gestionRutinas")
     public String verRutinasForm(Model model) {
+    	
         model.addAttribute("clientes", serviceCliente.listarClientes());
         model.addAttribute("rutinas", serviceRutina.listarRutinas());
+        
         return "gestionRutinas";
     }
 
     @GetMapping("/gestionRutinas/cliente")
     public String mostrarRutinasCliente(@RequestParam(name="clienteId", required = false) Long id, Model model) {
+    	
         if (id == null) {
             return "redirect:/gestionRutinas";
         }
@@ -61,11 +70,13 @@ public class ControllerRutina {
         model.addAttribute("cliente", cliente);
         model.addAttribute("clientes", serviceCliente.listarClientes());
         model.addAttribute("rutinas", rutinas);
+        
         return "rutina_cliente";
     }
     
     @GetMapping("/gestionRutinas/editar/{clienteId}")
     public String mostrarFormularioEdicionRutinas(@PathVariable long clienteId, Model model) {
+    	
         Cliente cliente = serviceCliente.findById(clienteId).orElse(null);
         
         if (cliente == null) {
@@ -74,6 +85,7 @@ public class ControllerRutina {
         
         model.addAttribute("cliente", cliente);
         model.addAttribute("rutinas", cliente.getListaRutinas());
+        
         return "editarRutinas";
     }
     
@@ -100,11 +112,13 @@ public class ControllerRutina {
         }
         
         serviceCliente.save(clienteExistente);
+        
         return "redirect:/gestionRutinas";
     }
     
     @PostMapping("/gestionRutinas/borrar/{id}")
     public String borrarRutina(@PathVariable long id) {
+    	
         Cliente cliente = serviceCliente.findById(id).orElse(null);
         
         if (cliente != null) {
@@ -114,5 +128,70 @@ public class ControllerRutina {
         
         return "redirect:/gestionRutinas";
     } 
+        
+    @GetMapping("/analisis")
+    public String mostrarSeleccionCliente(Model model) {
+        model.addAttribute("clientes", serviceCliente.findAll());
+        return "Analisis";
+    }
+
+    @GetMapping("/analisis/cliente")
+    public String analizarCliente(@RequestParam(name = "clienteid") Long id, Model model) {
+        Optional<Cliente> clienteOpt = serviceCliente.findById(id);
+        if (clienteOpt.isPresent()) {
+            model.addAttribute("cliente", clienteOpt.get());
+            return "AnalisisCliente";
+        }
+        return "redirect:/analisis";
+    }
+
+    @PostMapping("/analisis/cliente/{id}/calcularRM")
+    public String calcularRM(@PathVariable Long id, Model model) {
+    	
+        Optional<Cliente> clienteOpt = serviceCliente.findById(id);
+        
+        if (clienteOpt.isPresent()) {
+            List<Map<String, Object>> rutinasConRM = serviceCliente.calcularUnoRM(id);
+            model.addAttribute("cliente", clienteOpt.get());
+            model.addAttribute("rutinas", rutinasConRM);
+            
+            return "ResultadosRM"; 
+        }
+        
+        return "redirect:/analisis";
+    }   
+    
+    @PostMapping("/analisis/cliente/{id}/calcularVolumen")
+    public String calcularVolumenSemanal(@PathVariable Long id, Model model) {
+    	
+        Optional<Cliente> clienteOpt = serviceCliente.findById(id);
+        
+        if (clienteOpt.isPresent()) {
+            Cliente cliente = clienteOpt.get();
+            int totalSeries = serviceCliente.calcularVolumenSemanal(id);
+            
+            model.addAttribute("cliente", cliente);
+            model.addAttribute("totalSeries", totalSeries);
+            return "resultadosVolumen";
+        }
+        
+        return "redirect:/analisis/cliente/" + id;
+    }    
+    
+    
+    @PostMapping("/analisis/cliente/{id}/calcularTotalKg")
+    public String mostrarTotalKg(@PathVariable Long id, Model model) {
+    	
+        Optional<Cliente> cliente = serviceCliente.findById(id);
+        
+        if (cliente.isPresent()) {
+            double totalKg = serviceCliente.calcularTotalKgLevantados(id);
+            model.addAttribute("cliente", cliente.get());
+            model.addAttribute("totalKg", totalKg);
+            return "ResultadosKg";
+        }
+        
+        return "redirect:/analisis/cliente/" + id;
+    }
     
 }

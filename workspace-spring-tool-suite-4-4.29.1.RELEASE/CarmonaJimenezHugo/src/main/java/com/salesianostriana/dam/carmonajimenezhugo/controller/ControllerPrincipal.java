@@ -1,6 +1,4 @@
-package com.salesianostriana.dam.carmonajimenezhugo.controller;
-
-import org.springframework.stereotype.Controller;
+package com.salesianostriana.dam.carmonajimenezhugo.controller;import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -26,5 +24,5 @@ public class ControllerPrincipal {
     public String dedicamos() {
         return "Dedicamos";
     }
-
+        
 }
