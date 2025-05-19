@@ -1,10 +1,10 @@
 package com.salesianostriana.dam.carmonajimenezhugo.service;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
@@ -25,31 +25,24 @@ public class ServiceCliente extends BaseServiceImpl <Cliente, Long, RepositoryCl
 	}
 	
 	public List<Map<String, Object>> calcularUnoRM(Long clienteId) {
-		
-	    Optional<Cliente> clienteOpt = repository.findById(clienteId);
-	    List<Map<String, Object>> resultado = new ArrayList<>();
-	    
-	    if (clienteOpt.isPresent()) {
-	        Cliente cliente = clienteOpt.get();
-	        for (Rutina rutina : cliente.getListaRutinas()) {
-	            Map<String, Object> fila = new LinkedHashMap<>();
-	            fila.put("diaSemana", rutina.getDiaSemana());
-	            fila.put("ejercicio", rutina.getEjercicio());
-	            fila.put("series", rutina.getSeries());
-	            fila.put("repeticiones", rutina.getRepeticiones());
-	            fila.put("peso", rutina.getPeso());
-	            fila.put("descanso", rutina.getDescanso());
-
-	            double oneRM = rutina.getPeso() * (1 + (0.0333 * rutina.getRepeticiones()));
-	            fila.put("oneRM", oneRM);
-	            
-	            resultado.add(fila);
-	        }
-	    }
-	    
-	    return resultado;
+	    return repository.findById(clienteId)
+	        .map(cliente -> cliente.getListaRutinas().stream()
+	            .map(rutina -> {
+	                Map<String, Object> fila = new LinkedHashMap<>();
+	                fila.put("diaSemana", rutina.getDiaSemana());
+	                fila.put("ejercicio", rutina.getEjercicio());
+	                fila.put("series", rutina.getSeries());
+	                fila.put("repeticiones", rutina.getRepeticiones());
+	                fila.put("peso", rutina.getPeso());
+	                fila.put("descanso", rutina.getDescanso());
+	                fila.put("oneRM", rutina.getPeso() * (1 + (0.0333 * rutina.getRepeticiones())));
+	                
+	                return fila;
+	            })
+	            .collect(Collectors.toList()))
+	        .orElse(Collections.emptyList());
 	}
-	
+
 	public int calcularVolumenSemanal(Long clienteId) {
 	    return repository.findById(clienteId)
 	        .stream()

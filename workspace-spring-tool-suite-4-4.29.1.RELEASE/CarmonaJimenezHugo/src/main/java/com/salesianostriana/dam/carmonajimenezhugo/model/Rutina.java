@@ -12,9 +12,11 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString.Exclude;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 @Entity
 public class Rutina {
