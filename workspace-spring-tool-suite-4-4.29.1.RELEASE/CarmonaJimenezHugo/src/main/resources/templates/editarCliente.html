@@ -3,61 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GymPlanner - Ver clientes</title>
+    <title>GymPlanner - Editar cliente</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<body class="d-flex flex-column min-vh-100 bg-white">
+<body class="d-flex flex-column min-vh-100 bg-light">
     <header th:replace="fragments :: header"></header>
+
     <div th:replace="fragments :: menu"></div>
 
-    <main class="container-fluid flex-grow-1 py-4">
-        <h2 class="mb-4 text-center">Editar cliente</h2>
+    <main class="container flex-grow-1 py-5">
         <div class="row justify-content-center">
-            <div class="col-md-6">
-
-                <form th:action="@{'/editarCliente/' + ${cliente.id}}" th:object="${cliente}" method="post" class="border rounded p-4 shadow-sm bg-light">
-                    
-                    <div class="mb-3">
-                        <label class="form-label">Nombre</label>
-                        <input type="text" th:field="*{nombre}" class="form-control" required>
+            <div class="col-lg-8 col-xl-6">
+                <div class="card shadow-sm border-0 rounded-3 overflow-hidden">
+                    <div class="card-header bg-dark text-warning py-3">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h2 class="h5 mb-0">
+                                <i class="bi bi-person-gear me-2"></i>Editar cliente
+                            </h2>
+                            <span class="badge bg-warning text-dark">ID: <span th:text="${cliente.id}"></span></span>
+                        </div>
                     </div>
                     
-                    <div class="mb-3">
-                        <label class="form-label">Apellidos</label>
-                        <input type="text" th:field="*{apellidos}" class="form-control" required>
+                    <div class="card-body p-4 p-md-5">
+                        <form th:action="@{'/editarCliente/' + ${cliente.id}}" th:object="${cliente}" method="post">
+                            <div class="mb-4">
+                                <h5 class="text-dark mb-3">
+                                    <i class="bi bi-person-lines-fill me-2"></i>Información personal
+                                </h5>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="nombre" class="form-label fw-semibold">Nombre</label>
+                                        <input type="text" th:field="*{nombre}" class="form-control" id="nombre" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="apellidos" class="form-label fw-semibold">Apellidos</label>
+                                        <input type="text" th:field="*{apellidos}" class="form-control" id="apellidos" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="edad" class="form-label fw-semibold">Edad</label>
+                                        <div class="input-group">
+                                            <input type="number" th:field="*{edad}" class="form-control" id="edad" min="16" max="99" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="fecha" class="form-label fw-semibold">Fecha de registro</label>
+                                        <input type="date" th:field="*{fecha}" class="form-control" id="fecha" required>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h5 class="text-dark mb-3">
+                                    <i class="bi bi-telephone me-2"></i>Información de contacto
+                                </h5>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="telefono" class="form-label fw-semibold">Teléfono</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">+34</span>
+                                            <input type="tel" th:field="*{telefono}" class="form-control" id="telefono" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label fw-semibold">Correo electrónico</label>
+                                        <input type="email" th:field="*{email}" class="form-control" id="email" required>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-grid gap-3 mt-4">
+                                <button type="submit" class="btn btn-warning text-dark py-2">
+                                    <i class="bi bi-save me-2"></i>Guardar cambios
+                                </button>
+                                <a th:href="@{/gestionClientes}" class="btn btn-outline-dark py-2">
+                                    <i class="bi bi-x-circle me-2"></i>Cancelar
+                                </a>
+                            </div>
+                        </form>
                     </div>
                     
-                    <div class="mb-3">
-                        <label class="form-label">Edad</label>
-                        <input type="number" th:field="*{edad}" class="form-control" required>
+                    <div class="card-footer bg-dark py-3 text-center">
+                        <small class="text-warning">
+                            <i class="bi bi-info-circle me-1"></i> Todos los campos son obligatorios
+                        </small>
                     </div>
-                    
-                    <div class="mb-3">
-                        <label class="form-label">Email</label>
-                        <input type="email" th:field="*{email}" class="form-control" required>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label class="form-label">Teléfono</label>
-                        <input type="tel" th:field="*{telefono}" class="form-control" required>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label class="form-label">Fecha</label>
-                        <input type="date" th:field="*{fecha}" class="form-control" required>
-                    </div>
-                    
-                    <div class="d-flex justify-content-end gap-2">
-                        <button type="submit" class="btn btn-outline-success">
-                            <i class="bi bi-save"></i> Guardar
-                        </button>
-                        <a th:href="@{/gestionClientes}" class="btn btn-outline-danger">
-                            <i class="bi bi-x-circle"></i> Cancelar
-                        </a>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </main>

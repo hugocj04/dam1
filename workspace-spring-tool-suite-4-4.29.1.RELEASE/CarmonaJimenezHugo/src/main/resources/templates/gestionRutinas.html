@@ -9,31 +9,35 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-<body class="d-flex flex-column min-vh-100 bg-white">
-
+<body class="d-flex flex-column min-vh-100 bg-light">
     <header th:replace="fragments :: header"></header>
     <div th:replace="fragments :: menu"></div>
 
-    <main class="container flex-grow-1 py-4">
-        <h2 class="mb-4 text-center">Rutinas</h2>
+    <main class="container flex-grow-1 py-5">
+        <div class="text-center mb-5">
+            <h2 class="h4 text-dark">
+                <i class="bi bi-list-check me-2"></i>Gestión de rutinas
+            </h2>
+            <p class="text-muted mb-0">Consulta, edita o elimina rutinas asignadas</p>
+        </div>
 
         <div class="row justify-content-center mb-4">
             <div class="col-md-8 col-lg-6 col-xl-5">
-                <form th:action="@{/gestionRutinas/cliente}" method="get" class="border rounded-3 p-3 shadow-sm bg-light">
+                <form th:action="@{/gestionRutinas/cliente}" method="get" class="border rounded-3 p-4 shadow-sm bg-white">
                     <div class="mb-3">
                         <label for="clienteId" class="form-label fw-semibold text-muted mb-2">
                             <i class="bi bi-person-fill me-2"></i>Seleccionar cliente
                         </label>
                         <div class="input-group">
-                            <select name="clienteId" id="clienteId" class="form-select shadow-sm" required style="min-width: 200px;">
-                                <option value="" disabled selected>Elige un cliente...</option>
+                            <select name="clienteId" id="clienteId" class="form-select shadow-sm" required>
+                                <option value="" disabled selected>-- Elige un cliente --</option>
                                 <option th:each="cliente : ${clientes}"
                                         th:value="${cliente.id}"
                                         th:text="${cliente.nombre + ' ' + cliente.apellidos}">
                                 </option>
                             </select>
-                            <button type="submit" class="btn btn-primary px-4">
-                                <i class="bi bi-funnel-fill"></i> Filtrar
+                            <button type="submit" class="btn btn-warning text-dark px-4">
+                                <i class="bi bi-funnel-fill me-1"></i>Filtrar
                             </button>
                         </div>
                     </div>
@@ -41,54 +45,60 @@
             </div>
         </div>
 
-        <div class="row justify-content-center mt-4">
+        <div class="row justify-content-center">
             <div class="col-12 col-xl-11">
-
                 <div th:each="cliente : ${clientes}" th:if="${!cliente.ListaRutinas.isEmpty()}">
+                    <div class="card mb-5 shadow-sm border-0 rounded-3 overflow-hidden">
+                        <div class="card-header bg-dark text-warning py-3">
+                            <h3 class="h6 mb-0" th:text="'Rutinas de ' + ${cliente.nombre} + ' ' + ${cliente.apellidos}"></h3>
+                        </div>
 
-                    <h3 class="h4 mb-3 text-primary" th:text="'Rutina de ' + ${cliente.nombre} + ' ' + ${cliente.apellidos}"></h3>
+                        <div class="card-body p-4 bg-white">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover align-middle mb-4">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th class="text-nowrap px-3">Día</th>
+                                            <th class="px-3">Ejercicio</th>
+                                            <th class="px-3">Series</th>
+                                            <th class="px-3">Repeticiones</th>
+                                            <th class="px-3">Peso (Kg)</th>
+                                            <th class="px-3">Imagen</th>
+                                            <th class="px-3">Descanso</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="rutina : ${cliente.ListaRutinas}">
+                                            <td th:text="${rutina.diaSemana}" class="fw-semibold px-3"></td>
+                                            <td th:text="${rutina.ejercicio}" class="px-3"></td>
+                                            <td th:text="${rutina.series}" class="text-center px-3"></td>
+                                            <td th:text="${rutina.repeticiones}" class="text-center px-3"></td>
+                                            <td th:text="${rutina.peso}" class="text-center px-3"></td>
+                                            <td class="text-center px-3">
+                                                <img th:src="${rutina.urlImagen}"
+                                                     th:alt="${rutina.alt}"
+                                                     class="img-fluid rounded"
+                                                     style="width: 180px; height: 100px; object-fit: cover;">
+                                            </td>
+                                            <td th:text="${rutina.descanso}" class="text-center px-3"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
 
-                    <div class="table-responsive-lg">
-                        <table class="table table-bordered table-hover shadow-sm bg-white">
-                            <thead class="table-primary">
-                                <tr>
-                                    <th class="text-nowrap px-3">Día</th>
-                                    <th class="px-3">Ejercicio</th>
-                                    <th class="px-3">Series</th>
-                                    <th class="px-3">Repeticiones</th>
-                                    <th class="px-3">Peso (Kg)</th>
-                                    <th class="px-3">Descanso</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr th:each="rutina : ${cliente.ListaRutinas}">
-                                    <td th:text="${rutina.diaSemana}" class="fw-semibold px-3"></td>
-                                    <td th:text="${rutina.ejercicio}" class="px-3"></td>
-                                    <td th:text="${rutina.series}" class="text-center px-3"></td>
-                                    <td th:text="${rutina.repeticiones}" class="text-center px-3"></td>
-                                    <td th:text="${rutina.peso}" class="text-center px-3"></td>
-                                    <td th:text="${rutina.descanso}" class="text-center px-3"></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                            <div class="d-flex gap-2 justify-content-end">
+                                <a th:href="@{'/gestionRutinas/editar/' + ${cliente.id}}" class="btn btn-outline-primary">
+                                    <i class="bi bi-pencil-square me-1"></i>Editar
+                                </a>
+                                <form th:action="@{'/gestionRutinas/borrar/' + ${cliente.id}}" method="post">
+                                    <button type="submit" class="btn btn-outline-danger">
+                                        <i class="bi bi-trash me-1"></i>Borrar rutinas
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="d-flex gap-2 justify-content-end mb-5">
-
-                        <a th:href="@{'/gestionRutinas/editar/' + ${cliente.id}}" class="btn btn-outline-primary">
-                            <i class="bi bi-pencil-square"></i> Editar
-                        </a>
-
-                        <form th:action="@{'/gestionRutinas/borrar/' + ${cliente.id}}" method="post">
-                            <button type="submit" class="btn btn-outline-danger">
-                                <i class="bi bi-trash"></i> Borrar rutinas
-                            </button>
-                        </form>
-
-                    </div>
-
                 </div>
-
             </div>
         </div>
     </main>

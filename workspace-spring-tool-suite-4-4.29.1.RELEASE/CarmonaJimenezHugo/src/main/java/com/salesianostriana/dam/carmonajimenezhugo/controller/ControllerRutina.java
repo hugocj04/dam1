@@ -90,9 +90,8 @@ public class ControllerRutina {
     }
     
     @PostMapping("/gestionRutinas/guardar/{clienteId}")
-    public String guardarRutinasEditadas(@PathVariable long clienteId, 
-                                        @ModelAttribute Cliente cliente, 
-                                        Model model) {
+    public String guardarRutinasEditadas(@PathVariable long clienteId, @ModelAttribute Cliente cliente, Model model) {
+    	
         Cliente clienteExistente = serviceCliente.findById(clienteId).orElse(null);
         
         if (clienteExistente == null) {
@@ -151,7 +150,7 @@ public class ControllerRutina {
         Optional<Cliente> clienteOpt = serviceCliente.findById(id);
         
         if (clienteOpt.isPresent()) {
-            List<Map<String, Object>> rutinasConRM = serviceCliente.calcularUnoRM(id);
+            List<Map<String, Object>> rutinasConRM = serviceRutina.calcularUnoRM(id);
             model.addAttribute("cliente", clienteOpt.get());
             model.addAttribute("rutinas", rutinasConRM);
             
@@ -168,7 +167,7 @@ public class ControllerRutina {
         
         if (clienteOpt.isPresent()) {
             Cliente cliente = clienteOpt.get();
-            int totalSeries = serviceCliente.calcularVolumenSemanal(id);
+            int totalSeries = serviceRutina.calcularVolumenSemanal(id);
             
             model.addAttribute("cliente", cliente);
             model.addAttribute("totalSeries", totalSeries);
@@ -185,7 +184,7 @@ public class ControllerRutina {
         Optional<Cliente> cliente = serviceCliente.findById(id);
         
         if (cliente.isPresent()) {
-            double totalKg = serviceCliente.calcularTotalKgLevantados(id);
+            double totalKg = serviceRutina.calcularTotalKgLevantados(id);
             model.addAttribute("cliente", cliente.get());
             model.addAttribute("totalKg", totalKg);
             return "ResultadosKg";

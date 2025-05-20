@@ -31,6 +31,7 @@
                                         <th class="px-3">Series</th>
                                         <th class="px-3">Repeticiones</th>
                                         <th class="px-3">Peso (Kg)</th>
+                                        <th class="px-3">Imagen</th>
                                         <th class="px-3">Descanso</th>
                                     </tr>
                                 </thead>
@@ -41,6 +42,14 @@
                                         <td th:text="${rutina.series}" class="text-center px-3"></td>
                                         <td th:text="${rutina.repeticiones}" class="text-center px-3"></td>
                                         <td th:text="${rutina.peso}" class="text-center px-3"></td>
+                                        <td class="text-center px-3">
+                                            <div class="d-flex justify-content-center">
+                                                <img th:src="${rutina.urlImagen}" 
+                                                    th:alt="${rutina.alt}"
+                                                    class="img-fluid rounded"
+                                                    style="width: 180px; height: 100px; object-fit: cover;">
+                                            </div>
+                                        </td>
                                         <td th:text="${rutina.descanso}" class="text-center px-3"></td>
                                     </tr>
                                 </tbody>

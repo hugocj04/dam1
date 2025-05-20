@@ -37,6 +37,7 @@
                                         <th class="px-3">Series</th>
                                         <th class="px-3">Repeticiones</th>
                                         <th class="px-3">Peso (Kg)</th>
+                                        <th class="px-3">Imagen</th>
                                         <th class="px-3">Descanso</th>
                                     </tr>
                                 </thead>
@@ -47,6 +48,14 @@
                                         <td th:text="${rutina.series}" class="text-center px-3"></td>
                                         <td th:text="${rutina.repeticiones}" class="text-center px-3"></td>
                                         <td th:text="${rutina.peso}" class="text-center px-3"></td>
+                                        <td class="text-center px-3">
+                                            <div class="d-flex justify-content-center">
+                                                <img th:src="${rutina.urlImagen}" 
+                                                    th:alt="${rutina.alt}"
+                                                    class="img-fluid rounded"
+                                                    style="width: 180px; height: 100px; object-fit: cover;">
+                                            </div>
+                                        </td>
                                         <td th:text="${rutina.descanso}" class="text-center px-3"></td>
                                     </tr>
                                 </tbody>
@@ -130,7 +139,7 @@
             <div class="modal-content">
                 <div class="modal-header bg-primary text-white">
                     <h5 class="modal-title" id="modalVolumenLabel">
-                        <i class="bi me-2"></i>Volumen Semanal
+                        <i class="bi me-2"></i>¿Qué es el volumen semanal?
                     </h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -147,7 +156,7 @@
             <div class="modal-content">
                 <div class="modal-header bg-primary text-white">
                     <h5 class="modal-title" id="modalTotalKgLabel">
-                        <i class="bi me-2"></i>Volumen Total de Kg Levantados
+                        <i class="bi me-2"></i>¿Qué es el volumen total de Kg levantados?
                     </h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
