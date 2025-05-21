@@ -27,7 +27,7 @@ public class ControllerCliente {
     @PostMapping("/registrar")
     public String submit(@ModelAttribute Cliente cliente, Model model) {
     	serviceCliente.save(cliente);
-    	return "redirect:/registrar";
+    	return "RegistroExito";
     }
 
     @GetMapping("/gestionClientes")

@@ -19,26 +19,16 @@
                     <div class="card-header bg-dark text-warning py-3">
                         <div class="d-flex align-items-center justify-content-between">
                             <h2 class="h5 mb-0">
-                                <i class="bi me-2"></i>Registrar nuevo cliente
+                                <i class="bi bi-person-plus me-2"></i>Registrar nuevo cliente
                             </h2>
                         </div>
                     </div>
 
                     <div class="card-body p-4 p-md-5">
-                        <form method="POST" th:action="@{/registrar}" th:object="${cliente}">
+                        <form th:action="@{/registrar}" th:object="${cliente}" method="post">
                             <div class="mb-4">
                                 <h5 class="text-dark mb-3">
-                                    <i class="bi bi-calendar-check me-2"></i>Información general
-                                </h5>
-                                <div class="mb-3">
-                                    <label for="fecha" class="form-label fw-semibold">Fecha de registro</label>
-                                    <input type="date" th:field="*{fecha}" class="form-control" id="fecha" required>
-                                </div>
-                            </div>
-
-                            <div class="mb-4">
-                                <h5 class="text-dark mb-3">
-                                    <i class="bi bi-person-lines-fill me-2"></i>Datos personales
+                                    <i class="bi bi-person-lines-fill me-2"></i>Información personal
                                 </h5>
                                 <div class="row g-3">
                                     <div class="col-md-6">
@@ -51,25 +41,36 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label for="edad" class="form-label fw-semibold">Edad</label>
-                                        <input type="number" th:field="*{edad}" class="form-control" id="edad" required>
+                                        <div class="input-group">
+                                            <input type="number" th:field="*{edad}" class="form-control" id="edad" min="16" max="99" required>
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="telefono" class="form-label fw-semibold">Teléfono</label>
-                                        <input type="tel" th:field="*{telefono}" class="form-control" id="telefono" required>
+                                        <label for="fecha" class="form-label fw-semibold">Fecha de registro</label>
+                                        <input type="date" th:field="*{fecha}" class="form-control" id="fecha" required>
                                     </div>
                                 </div>
                             </div>
-
+                            
                             <div class="mb-4">
                                 <h5 class="text-dark mb-3">
-                                    <i class="bi bi-envelope-at me-2"></i>Contacto
+                                    <i class="bi bi-telephone me-2"></i>Información de contacto
                                 </h5>
-                                <div class="mb-3">
-                                    <label for="email" class="form-label fw-semibold">Correo electrónico</label>
-                                    <input type="email" th:field="*{email}" class="form-control" id="email" required>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="telefono" class="form-label fw-semibold">Teléfono</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">+34</span>
+                                            <input type="tel" th:field="*{telefono}" class="form-control" id="telefono" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label fw-semibold">Correo electrónico</label>
+                                        <input type="email" th:field="*{email}" class="form-control" id="email" required>
+                                    </div>
                                 </div>
                             </div>
-
+                            
                             <div class="d-grid gap-3 mt-4">
                                 <button type="submit" class="btn btn-warning text-dark py-2">
                                     <i class="bi bi-person-plus me-2"></i>Agregar cliente

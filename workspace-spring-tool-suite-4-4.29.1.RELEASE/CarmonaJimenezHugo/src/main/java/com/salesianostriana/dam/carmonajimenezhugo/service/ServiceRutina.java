@@ -25,11 +25,7 @@ public class ServiceRutina extends BaseServiceImpl <Rutina, Long, RepositoryRuti
 	public List<Rutina> findByClienteId(Long clienteId) {
 	    return repository.findByClienteId(clienteId);
 	}
-	
-    private double calcularRMIndividual(Rutina rutina) {
-        return rutina.getPeso() * (1 + (0.0333 * rutina.getRepeticiones()));
-    }
-	
+		
     public List<Map<String, Object>> calcularUnoRM(Long clienteId) {
         return findByClienteId(clienteId).stream()
             .map(rutina -> {
@@ -42,7 +38,7 @@ public class ServiceRutina extends BaseServiceImpl <Rutina, Long, RepositoryRuti
                 fila.put("urlImagen", rutina.getUrlImagen());
                 fila.put("alt", rutina.getAlt());
                 fila.put("descanso", rutina.getDescanso());
-                fila.put("oneRM", calcularRMIndividual(rutina));
+                fila.put("oneRM", rutina.calcularRMIndividual(rutina));
                 return fila;
             })
             .collect(Collectors.toList());

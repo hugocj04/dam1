@@ -21,21 +21,20 @@ import com.salesianostriana.dam.carmonajimenezhugo.service.ServiceRutina;
 @Controller
 public class ControllerRutina {
 
+    @Autowired
+    private ServiceCliente serviceCliente;
+    
+    @Autowired
+    private ServiceRutina serviceRutina;
+	
 	@GetMapping("/asignarRutina")
 	public String mostrarFormularioRutina(Model model) {
 		
 	    model.addAttribute("rutina", new Rutina());
 	    model.addAttribute("clientes", serviceCliente.findAll());
 	    
-	    return "asignar";
+	    return "Asignar";
 	}
-	
-    @Autowired
-    private ServiceCliente serviceCliente;
-    
-    @Autowired
-    private ServiceRutina serviceRutina;
-
         
     @PostMapping("/asignarRutina")
     public String submit(@ModelAttribute Rutina rutina, Model model) {
@@ -44,7 +43,7 @@ public class ControllerRutina {
     	rutina.setCliente(cliente);
     	serviceRutina.save(rutina);
     	
-    	return "redirect:/asignarRutina";
+    	return "AsignoExito";
     }
 
 
@@ -54,24 +53,24 @@ public class ControllerRutina {
         model.addAttribute("clientes", serviceCliente.listarClientes());
         model.addAttribute("rutinas", serviceRutina.listarRutinas());
         
-        return "gestionRutinas";
+        return "GestionRutinas";
     }
 
     @GetMapping("/gestionRutinas/cliente")
     public String mostrarRutinasCliente(@RequestParam(name="clienteId", required = false) Long id, Model model) {
     	
+        Cliente cliente = serviceCliente.buscarPorId(id);
+        List<Rutina> rutinas = serviceRutina.findByClienteId(id);
+
         if (id == null) {
             return "redirect:/gestionRutinas";
         }
-        
-        Cliente cliente = serviceCliente.buscarPorId(id);
-        List<Rutina> rutinas = serviceRutina.findByClienteId(id);
-        
+                
         model.addAttribute("cliente", cliente);
         model.addAttribute("clientes", serviceCliente.listarClientes());
         model.addAttribute("rutinas", rutinas);
         
-        return "rutina_cliente";
+        return "Rutina_cliente";
     }
     
     @GetMapping("/gestionRutinas/editar/{clienteId}")
@@ -86,21 +85,20 @@ public class ControllerRutina {
         model.addAttribute("cliente", cliente);
         model.addAttribute("rutinas", cliente.getListaRutinas());
         
-        return "editarRutinas";
+        return "EditarRutinas";
     }
     
     @PostMapping("/gestionRutinas/guardar/{clienteId}")
     public String guardarRutinasEditadas(@PathVariable long clienteId, @ModelAttribute Cliente cliente, Model model) {
     	
         Cliente clienteExistente = serviceCliente.findById(clienteId).orElse(null);
-        
-        if (clienteExistente == null) {
-            return "redirect:/gestionRutinas";
-        }
-        
+        Rutina rutinaEditada = new Rutina();
+        Rutina rutinaExistente = new Rutina();
+                
         for (int i = 0; i < cliente.getListaRutinas().size(); i++) {
-            Rutina rutinaEditada = cliente.getListaRutinas().get(i);
-            Rutina rutinaExistente = clienteExistente.getListaRutinas().get(i);
+            
+            rutinaEditada = cliente.getListaRutinas().get(i);
+            rutinaExistente = clienteExistente.getListaRutinas().get(i);
             
             rutinaExistente.setDiaSemana(rutinaEditada.getDiaSemana());
             rutinaExistente.setEjercicio(rutinaEditada.getEjercicio());
@@ -116,7 +114,7 @@ public class ControllerRutina {
     }
     
     @PostMapping("/gestionRutinas/borrar/{id}")
-    public String borrarRutina(@PathVariable long id) {
+    public String borrarRutinas(@PathVariable long id) {
     	
         Cliente cliente = serviceCliente.findById(id).orElse(null);
         
@@ -126,8 +124,8 @@ public class ControllerRutina {
         }
         
         return "redirect:/gestionRutinas";
-    } 
-        
+    }
+            
     @GetMapping("/analisis")
     public String mostrarSeleccionCliente(Model model) {
         model.addAttribute("clientes", serviceCliente.findAll());
@@ -136,61 +134,69 @@ public class ControllerRutina {
 
     @GetMapping("/analisis/cliente")
     public String analizarCliente(@RequestParam(name = "clienteid") Long id, Model model) {
+    	
         Optional<Cliente> clienteOpt = serviceCliente.findById(id);
-        if (clienteOpt.isPresent()) {
-            model.addAttribute("cliente", clienteOpt.get());
-            return "AnalisisCliente";
+        
+        if (clienteOpt.isEmpty()) {
+            return "redirect:/analisis";
         }
-        return "redirect:/analisis";
+        
+        model.addAttribute("cliente", clienteOpt.get());
+        
+        return "AnalisisCliente";      
     }
 
     @PostMapping("/analisis/cliente/{id}/calcularRM")
     public String calcularRM(@PathVariable Long id, Model model) {
     	
         Optional<Cliente> clienteOpt = serviceCliente.findById(id);
+        List<Map<String, Object>> rutinasConRM = serviceRutina.calcularUnoRM(id);
         
-        if (clienteOpt.isPresent()) {
-            List<Map<String, Object>> rutinasConRM = serviceRutina.calcularUnoRM(id);
-            model.addAttribute("cliente", clienteOpt.get());
-            model.addAttribute("rutinas", rutinasConRM);
-            
-            return "ResultadosRM"; 
+        if (clienteOpt.isEmpty()) {
+            return "redirect:/analisis";
         }
         
-        return "redirect:/analisis";
+        model.addAttribute("cliente", clienteOpt.get());
+        model.addAttribute("rutinas", rutinasConRM);
+        return "ResultadosRM"; 
     }   
     
     @PostMapping("/analisis/cliente/{id}/calcularVolumen")
     public String calcularVolumenSemanal(@PathVariable Long id, Model model) {
     	
+    	Cliente cliente;
+    	int totalSeries;
         Optional<Cliente> clienteOpt = serviceCliente.findById(id);
         
-        if (clienteOpt.isPresent()) {
-            Cliente cliente = clienteOpt.get();
-            int totalSeries = serviceRutina.calcularVolumenSemanal(id);
-            
-            model.addAttribute("cliente", cliente);
-            model.addAttribute("totalSeries", totalSeries);
-            return "resultadosVolumen";
+        if (clienteOpt.isEmpty()) {
+            return "redirect:/analisis";
         }
         
-        return "redirect:/analisis/cliente/" + id;
+        cliente = clienteOpt.get();
+        totalSeries = serviceRutina.calcularVolumenSemanal(id);
+        
+        model.addAttribute("cliente", cliente);
+        model.addAttribute("totalSeries", totalSeries);
+        return "ResultadosVolumen";
+        
     }    
     
     
     @PostMapping("/analisis/cliente/{id}/calcularTotalKg")
     public String mostrarTotalKg(@PathVariable Long id, Model model) {
     	
+    	double totalKg;
         Optional<Cliente> cliente = serviceCliente.findById(id);
         
-        if (cliente.isPresent()) {
-            double totalKg = serviceRutina.calcularTotalKgLevantados(id);
-            model.addAttribute("cliente", cliente.get());
-            model.addAttribute("totalKg", totalKg);
-            return "ResultadosKg";
+        if (cliente.isEmpty()) {
+            return "redirect:/analisis";
         }
         
-        return "redirect:/analisis/cliente/" + id;
+        totalKg = serviceRutina.calcularTotalKgLevantados(id);
+        model.addAttribute("cliente", cliente.get());
+        model.addAttribute("totalKg", totalKg);
+        
+        return "ResultadosKg";
     }
     
 }
