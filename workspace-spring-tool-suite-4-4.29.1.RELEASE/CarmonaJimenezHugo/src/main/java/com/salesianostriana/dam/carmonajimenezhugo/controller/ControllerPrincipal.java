@@ -24,5 +24,10 @@ public class ControllerPrincipal {
     public String dedicamos() {
         return "Dedicamos";
     }
-        
+
+    @GetMapping("/galeria")
+    public String galeria() {
+        return "Galeria";
+    }
+
 }
