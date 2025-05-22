@@ -44,7 +44,7 @@
                                     <div class="col-md-6">
                                         <label for="edad" class="form-label fw-semibold">Edad</label>
                                         <div class="input-group">
-                                            <input type="number" th:field="*{edad}" class="form-control" id="edad" min="16" max="99" required>
+                                            <input type="number" th:field="*{edad}" class="form-control" id="edad" min="16" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -63,7 +63,7 @@
                                         <label for="telefono" class="form-label fw-semibold">Teléfono</label>
                                         <div class="input-group">
                                             <span class="input-group-text">+34</span>
-                                            <input type="tel" th:field="*{telefono}" class="form-control" id="telefono" required>
+                                            <input type="tel" th:field="*{telefono}" class="form-control" id="telefono" min="1" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">

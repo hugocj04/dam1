@@ -7,5 +7,5 @@ import com.salesianostriana.dam.carmonajimenezhugo.model.Cliente;
 
 @Repository
 public interface RepositoryCliente extends JpaRepository<Cliente, Long>{
-
+	
 }

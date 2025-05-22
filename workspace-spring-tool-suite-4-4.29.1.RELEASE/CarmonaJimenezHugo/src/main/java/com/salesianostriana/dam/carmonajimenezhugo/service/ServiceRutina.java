@@ -17,15 +17,11 @@ public class ServiceRutina extends BaseServiceImpl <Rutina, Long, RepositoryRuti
 	public List<Rutina> listarRutinas(){
 		return findAll();
 	}
-	
-	public void eliminarPorId(long id) {
-		deleteById(id);
-	}
-	
+		
 	public List<Rutina> findByClienteId(Long clienteId) {
 	    return repository.findByClienteId(clienteId);
 	}
-		
+			
     public List<Map<String, Object>> calcularUnoRM(Long clienteId) {
         return findByClienteId(clienteId).stream()
             .map(rutina -> {

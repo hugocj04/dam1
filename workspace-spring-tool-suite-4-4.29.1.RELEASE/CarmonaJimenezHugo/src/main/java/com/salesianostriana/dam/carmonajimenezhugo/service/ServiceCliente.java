@@ -18,5 +18,5 @@ public class ServiceCliente extends BaseServiceImpl <Cliente, Long, RepositoryCl
 	public Cliente buscarPorId(Long id) {
 	    return findById(id).orElse(null);
 	}
-		
+			
 }
